@@ -1,0 +1,384 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		5B2EEEA8175F331B00CAD4AF /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B2EEEA7175F331B00CAD4AF /* UIKit.framework */; };
+		5B2EEEAA175F331B00CAD4AF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B2EEEA9175F331B00CAD4AF /* Foundation.framework */; };
+		5B2EEEAC175F331B00CAD4AF /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B2EEEAB175F331B00CAD4AF /* CoreGraphics.framework */; };
+		5B2EEEB2175F331B00CAD4AF /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5B2EEEB0175F331B00CAD4AF /* InfoPlist.strings */; };
+		5B2EEEB4175F331B00CAD4AF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B2EEEB3175F331B00CAD4AF /* main.m */; };
+		5B2EEEB8175F331B00CAD4AF /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B2EEEB7175F331B00CAD4AF /* AppDelegate.m */; };
+		5B2EEEBA175F331B00CAD4AF /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B2EEEB9175F331B00CAD4AF /* Default.png */; };
+		5B2EEEBC175F331B00CAD4AF /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B2EEEBB175F331B00CAD4AF /* Default@2x.png */; };
+		5B2EEEBE175F331B00CAD4AF /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B2EEEBD175F331B00CAD4AF /* Default-568h@2x.png */; };
+		5B2EEEC1175F331B00CAD4AF /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B2EEEC0175F331B00CAD4AF /* ViewController.m */; };
+		5B2EEEC4175F331B00CAD4AF /* ViewController_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5B2EEEC2175F331B00CAD4AF /* ViewController_iPhone.xib */; };
+		5B2EEEC7175F331B00CAD4AF /* ViewController_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5B2EEEC5175F331B00CAD4AF /* ViewController_iPad.xib */; };
+		5B2EEED3175F36F500CAD4AF /* DragableListVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B2EEED2175F36F500CAD4AF /* DragableListVC.m */; };
+		5B2EEED6175F3D5F00CAD4AF /* DragableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B2EEED5175F3D5F00CAD4AF /* DragableView.m */; };
+		5B2EEED9175F476200CAD4AF /* DragDropManagerVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B2EEED8175F476200CAD4AF /* DragDropManagerVC.m */; };
+		5BCD2CA3175F528D00EA9299 /* doduck.png in Resources */ = {isa = PBXBuildFile; fileRef = 5BCD2CA2175F528D00EA9299 /* doduck.png */; };
+		5BCD2CA6175F53ED00EA9299 /* MultiZoneVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BCD2CA5175F53ED00EA9299 /* MultiZoneVC.m */; };
+		5BE08D05176038E50037658D /* ZoneView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BE08D04176038E50037658D /* ZoneView.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		5B2EEEA4175F331B00CAD4AF /* DragAndDrop.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DragAndDrop.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		5B2EEEA7175F331B00CAD4AF /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		5B2EEEA9175F331B00CAD4AF /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		5B2EEEAB175F331B00CAD4AF /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		5B2EEEAF175F331B00CAD4AF /* DragAndDrop-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "DragAndDrop-Info.plist"; sourceTree = "<group>"; };
+		5B2EEEB1175F331B00CAD4AF /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		5B2EEEB3175F331B00CAD4AF /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		5B2EEEB5175F331B00CAD4AF /* DragAndDrop-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "DragAndDrop-Prefix.pch"; sourceTree = "<group>"; };
+		5B2EEEB6175F331B00CAD4AF /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		5B2EEEB7175F331B00CAD4AF /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		5B2EEEB9175F331B00CAD4AF /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		5B2EEEBB175F331B00CAD4AF /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		5B2EEEBD175F331B00CAD4AF /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		5B2EEEBF175F331B00CAD4AF /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		5B2EEEC0175F331B00CAD4AF /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		5B2EEEC3175F331B00CAD4AF /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/ViewController_iPhone.xib; sourceTree = "<group>"; };
+		5B2EEEC6175F331B00CAD4AF /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/ViewController_iPad.xib; sourceTree = "<group>"; };
+		5B2EEED1175F36F500CAD4AF /* DragableListVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DragableListVC.h; sourceTree = "<group>"; };
+		5B2EEED2175F36F500CAD4AF /* DragableListVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DragableListVC.m; sourceTree = "<group>"; };
+		5B2EEED4175F3D5F00CAD4AF /* DragableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DragableView.h; sourceTree = "<group>"; };
+		5B2EEED5175F3D5F00CAD4AF /* DragableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DragableView.m; sourceTree = "<group>"; };
+		5B2EEED7175F476200CAD4AF /* DragDropManagerVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DragDropManagerVC.h; sourceTree = "<group>"; };
+		5B2EEED8175F476200CAD4AF /* DragDropManagerVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DragDropManagerVC.m; sourceTree = "<group>"; };
+		5BCD2CA2175F528D00EA9299 /* doduck.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = doduck.png; sourceTree = "<group>"; };
+		5BCD2CA4175F53ED00EA9299 /* MultiZoneVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MultiZoneVC.h; sourceTree = "<group>"; };
+		5BCD2CA5175F53ED00EA9299 /* MultiZoneVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MultiZoneVC.m; sourceTree = "<group>"; };
+		5BE08D03176038E50037658D /* ZoneView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZoneView.h; sourceTree = "<group>"; };
+		5BE08D04176038E50037658D /* ZoneView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZoneView.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		5B2EEEA1175F331B00CAD4AF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5B2EEEA8175F331B00CAD4AF /* UIKit.framework in Frameworks */,
+				5B2EEEAA175F331B00CAD4AF /* Foundation.framework in Frameworks */,
+				5B2EEEAC175F331B00CAD4AF /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		5B2EEE9B175F331B00CAD4AF = {
+			isa = PBXGroup;
+			children = (
+				5B2EEECD175F333000CAD4AF /* Class */,
+				5B2EEEAD175F331B00CAD4AF /* DragAndDrop */,
+				5B2EEEA6175F331B00CAD4AF /* Frameworks */,
+				5B2EEEA5175F331B00CAD4AF /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		5B2EEEA5175F331B00CAD4AF /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				5B2EEEA4175F331B00CAD4AF /* DragAndDrop.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		5B2EEEA6175F331B00CAD4AF /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				5B2EEEA7175F331B00CAD4AF /* UIKit.framework */,
+				5B2EEEA9175F331B00CAD4AF /* Foundation.framework */,
+				5B2EEEAB175F331B00CAD4AF /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		5B2EEEAD175F331B00CAD4AF /* DragAndDrop */ = {
+			isa = PBXGroup;
+			children = (
+				5BCD2CA1175F528D00EA9299 /* img */,
+				5B2EEEB6175F331B00CAD4AF /* AppDelegate.h */,
+				5B2EEEB7175F331B00CAD4AF /* AppDelegate.m */,
+				5B2EEEBF175F331B00CAD4AF /* ViewController.h */,
+				5B2EEEC0175F331B00CAD4AF /* ViewController.m */,
+				5B2EEEC2175F331B00CAD4AF /* ViewController_iPhone.xib */,
+				5B2EEEC5175F331B00CAD4AF /* ViewController_iPad.xib */,
+				5B2EEEAE175F331B00CAD4AF /* Supporting Files */,
+			);
+			path = DragAndDrop;
+			sourceTree = "<group>";
+		};
+		5B2EEEAE175F331B00CAD4AF /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				5B2EEEAF175F331B00CAD4AF /* DragAndDrop-Info.plist */,
+				5B2EEEB0175F331B00CAD4AF /* InfoPlist.strings */,
+				5B2EEEB3175F331B00CAD4AF /* main.m */,
+				5B2EEEB5175F331B00CAD4AF /* DragAndDrop-Prefix.pch */,
+				5B2EEEB9175F331B00CAD4AF /* Default.png */,
+				5B2EEEBB175F331B00CAD4AF /* Default@2x.png */,
+				5B2EEEBD175F331B00CAD4AF /* Default-568h@2x.png */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		5B2EEECD175F333000CAD4AF /* Class */ = {
+			isa = PBXGroup;
+			children = (
+				5B2EEED7175F476200CAD4AF /* DragDropManagerVC.h */,
+				5B2EEED8175F476200CAD4AF /* DragDropManagerVC.m */,
+				5BE08CFE1760229F0037658D /* DragableList */,
+				5BE08CFF1760378F0037658D /* Zone */,
+			);
+			path = Class;
+			sourceTree = "<group>";
+		};
+		5BCD2CA1175F528D00EA9299 /* img */ = {
+			isa = PBXGroup;
+			children = (
+				5BCD2CA2175F528D00EA9299 /* doduck.png */,
+			);
+			path = img;
+			sourceTree = "<group>";
+		};
+		5BE08CFE1760229F0037658D /* DragableList */ = {
+			isa = PBXGroup;
+			children = (
+				5B2EEED1175F36F500CAD4AF /* DragableListVC.h */,
+				5B2EEED2175F36F500CAD4AF /* DragableListVC.m */,
+				5B2EEED4175F3D5F00CAD4AF /* DragableView.h */,
+				5B2EEED5175F3D5F00CAD4AF /* DragableView.m */,
+			);
+			name = DragableList;
+			sourceTree = "<group>";
+		};
+		5BE08CFF1760378F0037658D /* Zone */ = {
+			isa = PBXGroup;
+			children = (
+				5BCD2CA4175F53ED00EA9299 /* MultiZoneVC.h */,
+				5BCD2CA5175F53ED00EA9299 /* MultiZoneVC.m */,
+				5BE08D03176038E50037658D /* ZoneView.h */,
+				5BE08D04176038E50037658D /* ZoneView.m */,
+			);
+			name = Zone;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		5B2EEEA3175F331B00CAD4AF /* DragAndDrop */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5B2EEECA175F331B00CAD4AF /* Build configuration list for PBXNativeTarget "DragAndDrop" */;
+			buildPhases = (
+				5B2EEEA0175F331B00CAD4AF /* Sources */,
+				5B2EEEA1175F331B00CAD4AF /* Frameworks */,
+				5B2EEEA2175F331B00CAD4AF /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = DragAndDrop;
+			productName = DragAndDrop;
+			productReference = 5B2EEEA4175F331B00CAD4AF /* DragAndDrop.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		5B2EEE9C175F331B00CAD4AF /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0460;
+				ORGANIZATIONNAME = doduck.com;
+			};
+			buildConfigurationList = 5B2EEE9F175F331B00CAD4AF /* Build configuration list for PBXProject "DragAndDrop" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 5B2EEE9B175F331B00CAD4AF;
+			productRefGroup = 5B2EEEA5175F331B00CAD4AF /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				5B2EEEA3175F331B00CAD4AF /* DragAndDrop */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		5B2EEEA2175F331B00CAD4AF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5B2EEEB2175F331B00CAD4AF /* InfoPlist.strings in Resources */,
+				5B2EEEBA175F331B00CAD4AF /* Default.png in Resources */,
+				5B2EEEBC175F331B00CAD4AF /* Default@2x.png in Resources */,
+				5B2EEEBE175F331B00CAD4AF /* Default-568h@2x.png in Resources */,
+				5B2EEEC4175F331B00CAD4AF /* ViewController_iPhone.xib in Resources */,
+				5B2EEEC7175F331B00CAD4AF /* ViewController_iPad.xib in Resources */,
+				5BCD2CA3175F528D00EA9299 /* doduck.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		5B2EEEA0175F331B00CAD4AF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5B2EEEB4175F331B00CAD4AF /* main.m in Sources */,
+				5B2EEEB8175F331B00CAD4AF /* AppDelegate.m in Sources */,
+				5B2EEEC1175F331B00CAD4AF /* ViewController.m in Sources */,
+				5B2EEED3175F36F500CAD4AF /* DragableListVC.m in Sources */,
+				5B2EEED6175F3D5F00CAD4AF /* DragableView.m in Sources */,
+				5B2EEED9175F476200CAD4AF /* DragDropManagerVC.m in Sources */,
+				5BCD2CA6175F53ED00EA9299 /* MultiZoneVC.m in Sources */,
+				5BE08D05176038E50037658D /* ZoneView.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		5B2EEEB0175F331B00CAD4AF /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5B2EEEB1175F331B00CAD4AF /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		5B2EEEC2175F331B00CAD4AF /* ViewController_iPhone.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5B2EEEC3175F331B00CAD4AF /* en */,
+			);
+			name = ViewController_iPhone.xib;
+			sourceTree = "<group>";
+		};
+		5B2EEEC5175F331B00CAD4AF /* ViewController_iPad.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5B2EEEC6175F331B00CAD4AF /* en */,
+			);
+			name = ViewController_iPad.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		5B2EEEC8175F331B00CAD4AF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		5B2EEEC9175F331B00CAD4AF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		5B2EEECB175F331B00CAD4AF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "DragAndDrop/DragAndDrop-Prefix.pch";
+				INFOPLIST_FILE = "DragAndDrop/DragAndDrop-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		5B2EEECC175F331B00CAD4AF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "DragAndDrop/DragAndDrop-Prefix.pch";
+				INFOPLIST_FILE = "DragAndDrop/DragAndDrop-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		5B2EEE9F175F331B00CAD4AF /* Build configuration list for PBXProject "DragAndDrop" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5B2EEEC8175F331B00CAD4AF /* Debug */,
+				5B2EEEC9175F331B00CAD4AF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5B2EEECA175F331B00CAD4AF /* Build configuration list for PBXNativeTarget "DragAndDrop" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5B2EEECB175F331B00CAD4AF /* Debug */,
+				5B2EEECC175F331B00CAD4AF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 5B2EEE9C175F331B00CAD4AF /* Project object */;
+}
