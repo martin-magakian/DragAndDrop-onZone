@@ -45,8 +45,12 @@
 -(void)backToOrigin:(DragableView *)dragableView{
     CGRect goTo = [dList positionInScrollViewForMotherView:dragableView.staticView];
     
+    
     [UIView animateWithDuration:0.4 animations:^{
         dragableView.frame = goTo;
+    } completion:^(BOOL finished){
+        dragableView.frame = dragableView.staticView.frame;
+        [dList.view addSubview:dragableView];
     }];
 }
 

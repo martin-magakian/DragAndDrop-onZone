@@ -71,8 +71,9 @@
 
 
 -(CGRect) positionInScrollViewForMotherView:(StaticView *)staticView{
-    return CGRectMake(staticView.frame.origin.x + scroll.frame.origin.x,
-                      staticView.frame.origin.y + scroll.frame.origin.y,
+    CGPoint scrollPos = scroll.contentOffset;
+    return CGRectMake(staticView.frame.origin.x + scroll.frame.origin.x - scrollPos.x,
+                      staticView.frame.origin.y + scroll.frame.origin.y - scrollPos.y,
                       staticView.frame.size.width, staticView.frame.size.height);
 }
 
