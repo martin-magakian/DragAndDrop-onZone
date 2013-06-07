@@ -10,11 +10,12 @@
 
 @implementation MultiZoneVC
 
--(id)initWithZones:(NSArray *)_zonesRect withBg:(UIView *)_bgView{
+-(id)initWithZones:(NSArray *)_zonesRect withBg:(UIView *)_bgView delegate:(id<ZoneEvent>)_delegate{
     self = [super init];
     if(self){
         bgView = [_bgView retain];
         zoneRects = [_zonesRect retain];
+        delegate = [_delegate retain];
     }
     return self;
 }
@@ -38,6 +39,7 @@
     for(NSValue *zoneVal in zoneRects){
         CGRect zoneRect = [zoneVal CGRectValue];
         ZoneView *zone = [[ZoneView alloc] initWithFrame:zoneRect];
+        zone.delegate = delegate;
         zone.motherView = self.view;
         zone.backgroundColor = [UIColor blueColor];
         zone.alpha = 0.3;

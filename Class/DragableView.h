@@ -22,6 +22,12 @@
 
 @end
 
+@protocol ZoneEvent <NSObject>
+
+-(void) replace:(DragableView *)oldDragable by:(DragableView *)newDragble from:(ZoneView *)zone;
+
+@end
+
 @interface DragableView : ContentReceiverView{
     CGPoint touchStart;
     CGRect originalFrame;

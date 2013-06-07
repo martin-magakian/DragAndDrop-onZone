@@ -10,7 +10,7 @@
 #import "DragableListVC.h"
 #import "MultiZoneVC.h"
 
-@interface DragDropManagerVC: UIViewController<DragableViewEvent>{
+@interface DragDropManagerVC: UIViewController<DragableViewEvent, ZoneEvent>{
     
     DragableListVC *dList;
     NSArray* dragableStaticControllers;

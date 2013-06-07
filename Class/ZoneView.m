@@ -11,7 +11,7 @@
 
 @implementation ZoneView
 
-@synthesize motherView;
+@synthesize motherView,delegate,currentDragableView;
 
 -(CGRect)positionInMother{
     return CGRectMake(self.frame.origin.x+motherView.frame.origin.x,
@@ -21,10 +21,14 @@
 }
 
 -(void) dropIn:(DragableView *) dragableView{
-    
+    if(self.currentDragableView != nil){
+        [delegate replace:self.currentDragableView by:dragableView from:self];
+    }
+    self.currentDragableView = dragableView;
 }
+
 -(void)movedOut:(DragableView *)dragableView{
-    
+    self.currentDragableView = nil;
 }
 -(void)movedIn:(DragableView *) dragableView{
     

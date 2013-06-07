@@ -14,6 +14,8 @@
 }
 
 @property(retain, nonatomic) UIView *motherView;
+@property(retain, nonatomic) id<ZoneEvent> delegate;
+@property(retain, nonatomic) DragableView* currentDragableView;
 
 -(CGRect)positionInMother;
 

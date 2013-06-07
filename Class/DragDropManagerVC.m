@@ -26,7 +26,7 @@
     [dList createScrollWithDragableItems];
     [self.view addSubview:dList.view];
     
-    dZone = [[MultiZoneVC alloc] initWithZones:zones withBg:zoneView];
+    dZone = [[MultiZoneVC alloc] initWithZones:zones withBg:zoneView delegate:self];
     dZone.view.frame = CGRectMake(200, 50, zoneView.frame.size.width, zoneView.frame.size.height);
     [self.view addSubview:dZone.view];
 }
@@ -52,6 +52,11 @@
     }];
 }
 
+-(void) replace:(DragableView *)oldDragable by:(DragableView *)newDragble from:(ZoneView *)zone{
+    [oldDragable movedOutZone:zone];
+    [self backToOrigin:oldDragable];
+}
+
 -(void) isDragingEnd:(DragableView *) dragableView{
     
     ZoneView *matchingZone = [dZone inAZone:dragableView];
@@ -61,6 +66,7 @@
     }else{
         [self backToOrigin:dragableView];
     }
+    lastOverZone = nil;
 }
 
 -(void) isDragingMoved:(DragableView *) dragableView{
@@ -69,7 +75,6 @@
     if(matchingZone != nil){
         [matchingZone movedIn:dragableView];
         [dragableView movedInZone:matchingZone];
-        
         lastOverZone = matchingZone;
     }else if(lastOverZone != nil){
         [lastOverZone movedOut:dragableView];
