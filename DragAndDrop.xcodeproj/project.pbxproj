@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5B03683317617EE00050A4FF /* hat.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B03683217617EE00050A4FF /* hat.png */; };
+		5B0368351761888E0050A4FF /* shoe.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B0368341761888E0050A4FF /* shoe.png */; };
+		5B2C88F81760A48E002591CF /* StaticView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B2C88F71760A48E002591CF /* StaticView.m */; };
+		5B2C88FB1760A6D7002591CF /* ContentReceiverView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B2C88FA1760A6D7002591CF /* ContentReceiverView.m */; };
+		5B2C88FE1760A86E002591CF /* DragableStaticContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B2C88FD1760A86E002591CF /* DragableStaticContainer.m */; };
 		5B2EEEA8175F331B00CAD4AF /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B2EEEA7175F331B00CAD4AF /* UIKit.framework */; };
 		5B2EEEAA175F331B00CAD4AF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B2EEEA9175F331B00CAD4AF /* Foundation.framework */; };
 		5B2EEEAC175F331B00CAD4AF /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B2EEEAB175F331B00CAD4AF /* CoreGraphics.framework */; };
@@ -28,6 +33,14 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5B03683217617EE00050A4FF /* hat.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hat.png; sourceTree = "<group>"; };
+		5B0368341761888E0050A4FF /* shoe.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = shoe.png; sourceTree = "<group>"; };
+		5B2C88F61760A48E002591CF /* StaticView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StaticView.h; sourceTree = "<group>"; };
+		5B2C88F71760A48E002591CF /* StaticView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StaticView.m; sourceTree = "<group>"; };
+		5B2C88F91760A6D7002591CF /* ContentReceiverView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContentReceiverView.h; sourceTree = "<group>"; };
+		5B2C88FA1760A6D7002591CF /* ContentReceiverView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContentReceiverView.m; sourceTree = "<group>"; };
+		5B2C88FC1760A86E002591CF /* DragableStaticContainer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DragableStaticContainer.h; sourceTree = "<group>"; };
+		5B2C88FD1760A86E002591CF /* DragableStaticContainer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DragableStaticContainer.m; sourceTree = "<group>"; };
 		5B2EEEA4175F331B00CAD4AF /* DragAndDrop.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DragAndDrop.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5B2EEEA7175F331B00CAD4AF /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		5B2EEEA9175F331B00CAD4AF /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -143,6 +156,8 @@
 		5BCD2CA1175F528D00EA9299 /* img */ = {
 			isa = PBXGroup;
 			children = (
+				5B0368341761888E0050A4FF /* shoe.png */,
+				5B03683217617EE00050A4FF /* hat.png */,
 				5BCD2CA2175F528D00EA9299 /* doduck.png */,
 			);
 			path = img;
@@ -155,6 +170,12 @@
 				5B2EEED2175F36F500CAD4AF /* DragableListVC.m */,
 				5B2EEED4175F3D5F00CAD4AF /* DragableView.h */,
 				5B2EEED5175F3D5F00CAD4AF /* DragableView.m */,
+				5B2C88F61760A48E002591CF /* StaticView.h */,
+				5B2C88F71760A48E002591CF /* StaticView.m */,
+				5B2C88F91760A6D7002591CF /* ContentReceiverView.h */,
+				5B2C88FA1760A6D7002591CF /* ContentReceiverView.m */,
+				5B2C88FC1760A86E002591CF /* DragableStaticContainer.h */,
+				5B2C88FD1760A86E002591CF /* DragableStaticContainer.m */,
 			);
 			name = DragableList;
 			sourceTree = "<group>";
@@ -228,6 +249,8 @@
 				5B2EEEC4175F331B00CAD4AF /* ViewController_iPhone.xib in Resources */,
 				5B2EEEC7175F331B00CAD4AF /* ViewController_iPad.xib in Resources */,
 				5BCD2CA3175F528D00EA9299 /* doduck.png in Resources */,
+				5B03683317617EE00050A4FF /* hat.png in Resources */,
+				5B0368351761888E0050A4FF /* shoe.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -246,6 +269,9 @@
 				5B2EEED9175F476200CAD4AF /* DragDropManagerVC.m in Sources */,
 				5BCD2CA6175F53ED00EA9299 /* MultiZoneVC.m in Sources */,
 				5BE08D05176038E50037658D /* ZoneView.m in Sources */,
+				5B2C88F81760A48E002591CF /* StaticView.m in Sources */,
+				5B2C88FB1760A6D7002591CF /* ContentReceiverView.m in Sources */,
+				5B2C88FE1760A86E002591CF /* DragableStaticContainer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

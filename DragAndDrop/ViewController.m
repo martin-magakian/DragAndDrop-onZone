@@ -10,6 +10,8 @@
 #import "DragableListVC.h"
 #import "DragableView.h"
 #import "DragDropManagerVC.h"
+#import "StaticView.h"
+#import "DragableStaticContainer.h"
 
 @interface ViewController ()
 
@@ -22,45 +24,81 @@
 {
     [super viewDidLoad];
 	
-    DragDropManagerVC *dd = [[DragDropManagerVC alloc] initWithDragableItem:[self createDragableItem] withZones:[self createZones] forZoneView:[self createZoneView]];
+    DragDropManagerVC *dd = [[DragDropManagerVC alloc] initWithDragableStaticControllers:[self DragableStaticControllers] withZones:[self createZones] forZoneView:[self createZoneView]];
     dd.view.frame = CGRectMake(20, 100, 700, 500);
     dd.view.backgroundColor = [UIColor yellowColor];
     
     [self.view addSubview:dd.view];
 }
 
--(NSArray *)createDragableItem{
+
+-(DragableStaticContainer *)createDragableStaticContainerText:(NSString *) text{
+    CGRect viewRect = CGRectMake(0, 0, 100, 50);
     
-    DragableView *item1 = [[DragableView alloc] initWithFrame:CGRectMake(0, 0, 100, 50)];
+    DragableView *dragable1 = [[DragableView alloc] initWithFrame:viewRect];
     UILabel *content1 = [[UILabel alloc] init];
-    content1.text = @"The head";
+    content1.text = text;
+    content1.textColor = [UIColor blueColor];
     [content1 sizeToFit];
-    item1.content = content1;
-    item1.backgroundColor = [UIColor redColor];
+    dragable1.content = content1;
+    dragable1.backgroundColor = [UIColor redColor];
     
-    DragableView *item2 = [[DragableView alloc] initWithFrame:CGRectMake(0, 0, 100, 50)];
-    item2.backgroundColor = [UIColor blackColor];
+    StaticView *static1 = [[StaticView alloc] initWithFrame:viewRect];
+    UILabel *content1Disalbe = [[UILabel alloc] init];
+    content1Disalbe.text = text;
+    content1Disalbe.textColor = [UIColor blackColor];
+    [content1Disalbe sizeToFit];
+    static1.content = content1Disalbe;
+    static1.backgroundColor = [UIColor grayColor];
     
-    DragableView *item3 = [[DragableView alloc] initWithFrame:CGRectMake(0, 0, 100, 50)];
-    item3.backgroundColor = [UIColor magentaColor];
+    DragableStaticContainer *dragableVC1 = [[DragableStaticContainer alloc] initWithDragable:dragable1 andStatic:static1];
+    return dragableVC1;
+}
+
+-(DragableStaticContainer *)createDragableStaticContainerImg:(NSString *)imageName{
+    CGRect viewRect = CGRectMake(0, 0, 100, 50);
     
-    DragableView *item4 = [[DragableView alloc] initWithFrame:CGRectMake(0, 0, 100, 50)];
-    item4.backgroundColor = [UIColor purpleColor];
+    DragableView *dragable3 = [[DragableView alloc] initWithFrame:viewRect];
+    UIImageView *content3 = [[UIImageView alloc] initWithImage:[UIImage imageNamed:imageName]];
+    dragable3.content = content3;
+    dragable3.backgroundColor = [UIColor purpleColor];
     
-    DragableView *item5 = [[DragableView alloc] initWithFrame:CGRectMake(0, 0, 100, 50)];
-    item5.backgroundColor = [UIColor greenColor];
+    StaticView *static3 = [[StaticView alloc] initWithFrame:viewRect];
+    UIImageView *content3Disable = [[UIImageView alloc] initWithImage:[UIImage imageNamed:imageName]];
+    content3Disable.alpha = 0.4;
+    static3.content = content3Disable;
+    static3.backgroundColor = [UIColor grayColor];
     
-    return [[[NSMutableArray alloc] initWithObjects:item1, item2, item3, item4, item5, nil] autorelease];
+    DragableStaticContainer *dragableVC3 = [[DragableStaticContainer alloc] initWithDragable:dragable3 andStatic:static3];
+    return dragableVC3;
+}
+
+-(NSArray *)DragableStaticControllers{
+    
+    DragableStaticContainer *dragableVC1 = [self createDragableStaticContainerText:@"Body"];
+    DragableStaticContainer *dragableVC2 = [self createDragableStaticContainerText:@"Some water"];
+    DragableStaticContainer *dragableVC3 = [self createDragableStaticContainerImg:@"hat.png"];
+    DragableStaticContainer *dragableVC4 = [self createDragableStaticContainerText:@"Beak"];
+    DragableStaticContainer *dragableVC5 = [self createDragableStaticContainerImg:@"shoe.png"];
+    DragableStaticContainer *dragableVC6 = [self createDragableStaticContainerText:@"The sky"];
+    
+    return [[[NSMutableArray alloc] initWithObjects:dragableVC1, dragableVC2, dragableVC3, dragableVC4, dragableVC5, dragableVC6,  nil] autorelease];
 }
 
 -(NSArray *)createZones{
-    NSValue *zone1 = [NSValue valueWithCGRect:CGRectMake(0, 0, 30, 15)];
+    NSValue *zoneBody = [NSValue valueWithCGRect:CGRectMake(115, 135, 70, 40)];
     
-    NSValue *zone2 = [NSValue valueWithCGRect:CGRectMake(100, 30, 40, 15)];
+    NSValue *zoneWater = [NSValue valueWithCGRect:CGRectMake(290, 200, 70, 40)];
     
-    NSValue *zone3 = [NSValue valueWithCGRect:CGRectMake(100, 100, 20, 15)];
+    NSValue *zoneHat = [NSValue valueWithCGRect:CGRectMake(150, 0, 40, 35)];
     
-    return [[[NSMutableArray alloc] initWithObjects:zone1, zone2, zone3, nil] autorelease];
+    NSValue *zoneBeak = [NSValue valueWithCGRect:CGRectMake(220, 80, 40, 35)];
+    
+    NSValue *zoneShoe = [NSValue valueWithCGRect:CGRectMake(150, 220, 70, 60)];
+    
+    NSValue *zoneSky = [NSValue valueWithCGRect:CGRectMake(10, 10, 50, 30)];
+    
+    return [[[NSMutableArray alloc] initWithObjects:zoneBody, zoneWater, zoneHat, zoneBeak, zoneShoe, zoneSky, nil] autorelease];
 }
 
 -(UIView *)createZoneView{

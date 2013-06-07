@@ -7,16 +7,17 @@
 //
 
 #import "DragableListVC.h"
+#import "DragableStaticContainer.h"
 
 #define PADDING_LEFT_ITEM 10
 #define PADDING_BOTTOM_ITEM 20
 @implementation DragableListVC
 
 
--(id)initWithDragableItem:(NSArray *)_dragableItems withDelegate:(id<DragableViewEvent>)_delegate{
+-(id)initWithDragableStaticContainers:(NSArray *)_dragableStaticContainers withDelegate:(id<DragableViewEvent>)_delegate{
     self = [super init];
     if(self){
-        dragableItems = [_dragableItems retain];
+        dragableStaticContainers = [_dragableStaticContainers retain];
         delegate = [_delegate retain];
     }
     return self;
@@ -29,16 +30,24 @@
     scroll.backgroundColor = [UIColor lightGrayColor];
     
     int y = 0;
-    for(DragableView *item in dragableItems){
-        item.frame = CGRectMake(PADDING_LEFT_ITEM,
+    for(DragableStaticContainer *dsContainer in dragableStaticContainers){
+        CGRect positionInScroll = CGRectMake(PADDING_LEFT_ITEM,
                                 y,
-                                item.frame.size.width,
-                                item.frame.size.height);
-        [scroll addSubview:item];
+                                dsContainer.dragableView.frame.size.width,
+                                dsContainer.dragableView.frame.size.height);
         
-        item.delegate = self;
+        dsContainer.staticView.frame = positionInScroll;
+        dsContainer.dragableView.frame = positionInScroll;
         
-        y += item.frame.size.height + PADDING_BOTTOM_ITEM;
+        
+        dsContainer.dragableView.staticView = dsContainer.staticView;
+        
+        [scroll addSubview:dsContainer.staticView];
+        [scroll addSubview:dsContainer.dragableView];
+        
+        dsContainer.dragableView.delegate = self;
+        
+        y += dsContainer.dragableView.frame.size.height + PADDING_BOTTOM_ITEM;
     }
     
     scroll.contentSize = CGSizeMake(self.view.frame.size.width, y - PADDING_BOTTOM_ITEM);
@@ -47,8 +56,8 @@
 }
 
 -(BOOL)isInList:(DragableView *) dragableView{
-    for(DragableView *item in dragableItems){
-        if(item == dragableView){
+    for(DragableStaticContainer *item in dragableStaticContainers){
+        if(item.dragableView == dragableView){
             NSArray *subViews = [scroll subviews];
             for(UIView *sub in subViews){
                 if(sub == dragableView){
@@ -58,6 +67,13 @@
         }
     }
     return NO;
+}
+
+
+-(CGRect) positionInScrollViewForMotherView:(StaticView *)staticView{
+    return CGRectMake(staticView.frame.origin.x + scroll.frame.origin.x,
+                      staticView.frame.origin.y + scroll.frame.origin.y,
+                      staticView.frame.size.width, staticView.frame.size.height);
 }
 
 
@@ -76,10 +92,9 @@
     [delegate isDragingMoved:dragableView];
 }
 
-
 -(void)dealloc{
     [delegate release];
-    [dragableItems release];
+    [dragableStaticContainers release];
     [super dealloc];
 }
 

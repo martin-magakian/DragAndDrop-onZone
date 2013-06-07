@@ -13,7 +13,7 @@
 @interface DragDropManagerVC: UIViewController<DragableViewEvent>{
     
     DragableListVC *dList;
-    NSArray* dragableItems;
+    NSArray* dragableStaticControllers;
     
     MultiZoneVC *dZone;
     NSArray *zones;
@@ -22,6 +22,6 @@
     ZoneView *lastOverZone;
 }
 
--(id)initWithDragableItem:(NSArray *)_dragableItems withZones:(NSArray *)_zones forZoneView:(UIView *)_zoneView;
+-(id)initWithDragableStaticControllers:(NSArray *)_dragableStaticControllers withZones:(NSArray *)_zones forZoneView:(UIView *)_zoneView;
 
 @end

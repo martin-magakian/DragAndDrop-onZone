@@ -10,10 +10,10 @@
 
 @implementation DragDropManagerVC
 
--(id)initWithDragableItem:(NSArray *)_dragableItems withZones:(NSArray *)_zones forZoneView:(UIView *)_zoneView{
+-(id)initWithDragableStaticControllers:(NSArray *)_dragableStaticControllers withZones:(NSArray *)_zones forZoneView:(UIView *)_zoneView{
     self = [super init];
     if(self){
-        dragableItems = [_dragableItems retain];
+        dragableStaticControllers = [_dragableStaticControllers retain];
         zones = [_zones retain];
         zoneView = [_zoneView retain];
     }
@@ -21,7 +21,7 @@
 }
 
 -(void)viewDidLoad{
-    dList = [[DragableListVC alloc] initWithDragableItem:dragableItems withDelegate:self];
+    dList = [[DragableListVC alloc] initWithDragableStaticContainers:dragableStaticControllers withDelegate:self];
     dList.view.frame = CGRectMake(50, 50, 120, 300);
     [dList createScrollWithDragableItems];
     [self.view addSubview:dList.view];
@@ -42,6 +42,13 @@
     }
 }
 
+-(void)backToOrigin:(DragableView *)dragableView{
+    CGRect goTo = [dList positionInScrollViewForMotherView:dragableView.staticView];
+    
+    [UIView animateWithDuration:0.4 animations:^{
+        dragableView.frame = goTo;
+    }];
+}
 
 -(void) isDragingEnd:(DragableView *) dragableView{
     
@@ -49,6 +56,8 @@
     if(matchingZone != nil){
         [matchingZone dropIn:dragableView];
         [dragableView dropInZone:matchingZone];
+    }else{
+        [self backToOrigin:dragableView];
     }
 }
 
@@ -69,7 +78,7 @@
 }
 
 -(void)dealloc{
-    [dragableItems release];
+    [dragableStaticControllers release];
     [dList release];
     [super dealloc];
 }

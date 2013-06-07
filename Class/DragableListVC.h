@@ -10,13 +10,13 @@
 #import "DragableView.h"
 
 @interface DragableListVC : UIViewController<DragableViewEvent>{
-    NSArray* dragableItems;
+    NSArray* dragableStaticContainers;
     UIScrollView *scroll;
     id<DragableViewEvent> delegate;
 }
 
--(id)initWithDragableItem:(NSArray *)_dragableItems withDelegate:(id<DragableViewEvent>)_delegate;
+-(id)initWithDragableStaticContainers:(NSArray *)_dragableItems withDelegate:(id<DragableViewEvent>)_delegate;
 -(void)createScrollWithDragableItems;
 -(BOOL)isInList:(DragableView *) dragableView;
-
+-(CGRect) positionInScrollViewForMotherView:(StaticView *)staticView;
 @end

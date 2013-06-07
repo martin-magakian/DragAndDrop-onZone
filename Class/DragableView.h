@@ -7,6 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ContentReceiverView.h"
+#import "StaticView.h"
 
 
 @class ZoneView;
@@ -20,15 +22,13 @@
 
 @end
 
-@interface DragableView : UIView{
+@interface DragableView : ContentReceiverView{
     CGPoint touchStart;
     CGRect originalFrame;
 }
 @property(assign) CGPoint correction;
-@property(retain, nonatomic) UIView* content;
 @property(retain, nonatomic) id<DragableViewEvent> delegate;
-
--(CGRect)getContentFrame;
+@property(retain,nonatomic) StaticView *staticView;
 
 -(void)movedOutZone:(ZoneView *)matchingZone;
 -(void)movedInZone:(ZoneView *) matchingZone;
