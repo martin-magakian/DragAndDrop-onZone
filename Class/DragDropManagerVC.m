@@ -34,10 +34,8 @@
 -(void) isDragingStart:(DragableView *) dragableView{
     
     if([dList isInList:dragableView]){
-        dragableView.frame = CGRectMake(dragableView.frame.origin.x+dList.view.frame.origin.x,
-                                    dragableView.frame.origin.y+dList.view.frame.origin.y,
-                                    dragableView.frame.size.width,
-                                    dragableView.frame.size.height);
+        CGRect dragFrom = [dList positionInScrollViewForMotherView:dragableView.staticView];
+        dragableView.frame = dragFrom;
         [self.view addSubview:dragableView];
     }
 }
