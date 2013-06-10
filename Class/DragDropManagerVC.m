@@ -8,6 +8,7 @@
 #import "DragDropManagerVC.h"
 #import "ZoneView.h"
 
+
 @implementation DragDropManagerVC
 
 -(id)initWithDragableStaticControllers:(NSArray *)_dragableStaticControllers withZones:(NSArray *)_zones forZoneView:(UIView *)_zoneView{
@@ -41,6 +42,12 @@
 }
 
 -(void)backToOrigin:(DragableView *)dragableView{
+    
+    if(dragableView.currentZone != nil){
+        [dragableView.currentZone movedOut:dragableView];
+        [dragableView movedOutZone:dragableView.currentZone];
+    }
+    
     CGRect goTo = [dList positionInScrollViewForMotherView:dragableView.staticView];
     
     
@@ -52,9 +59,14 @@
     }];
 }
 
--(void) replace:(DragableView *)oldDragable by:(DragableView *)newDragble from:(ZoneView *)zone{
-    [oldDragable movedOutZone:zone];
+-(void) replace:(DragableView *)oldDragable by:(DragableView *)newDragble{
+    [oldDragable movedOutZone:oldDragable.currentZone];
+    [oldDragable.currentZone movedOut:oldDragable];
     [self backToOrigin:oldDragable];
+}
+
+-(void) isTap:(DragableView *) dragableView{
+    [self backToOrigin:dragableView];
 }
 
 -(void) isDragingEnd:(DragableView *) dragableView{
@@ -81,7 +93,6 @@
         [dragableView movedOutZone:lastOverZone];
         lastOverZone = nil;
     }
-
 }
 
 -(void)dealloc{

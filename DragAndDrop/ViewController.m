@@ -102,7 +102,9 @@
 }
 
 -(UIView *)createZoneView{
-    return [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"doduck.png"]];
+    UIImageView* img = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"doduck.png"]];
+    img.userInteractionEnabled = YES;
+    return img;
 }
 
 @end

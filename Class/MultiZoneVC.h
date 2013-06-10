@@ -9,8 +9,10 @@
 #import <UIKit/UIKit.h>
 #import "DragableView.h"
 #import "ZoneView.h"
+#import "PassthroughView.h"
 
 @interface MultiZoneVC : UIViewController{
+    PassthroughView *passView;
     UIView *bgView;
     NSArray *zoneRects;
     NSArray *zoneViews;

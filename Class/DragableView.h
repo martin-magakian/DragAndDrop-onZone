@@ -19,12 +19,14 @@
 -(void) isDragingStart:(DragableView *) dragableView;
 -(void) isDragingEnd:(DragableView *) dragableView;
 -(void) isDragingMoved:(DragableView *) dragableView;
+-(void) isTap:(DragableView *) dragableView;
 
 @end
 
 @protocol ZoneEvent <NSObject>
 
--(void) replace:(DragableView *)oldDragable by:(DragableView *)newDragble from:(ZoneView *)zone;
+-(void) replace:(DragableView *)oldDragable by:(DragableView *)newDragble;
+-(void) isZoneTouched:(ZoneView *)touchedZone;
 
 @end
 
@@ -35,6 +37,7 @@
 @property(assign) CGPoint correction;
 @property(retain, nonatomic) id<DragableViewEvent> delegate;
 @property(retain,nonatomic) StaticView *staticView;
+@property(retain, nonatomic) ZoneView *currentZone;
 
 -(void)movedOutZone:(ZoneView *)matchingZone;
 -(void)movedInZone:(ZoneView *) matchingZone;

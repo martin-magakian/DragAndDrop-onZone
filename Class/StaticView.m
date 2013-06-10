@@ -10,5 +10,25 @@
 
 @implementation StaticView
 
+-(id)initWithFrame:(CGRect)frame{
+    self = [super initWithFrame:frame];
+    if(self){
+        [self addTapGesture];
+    }
+    return self;
+}
+
+-(void) addTapGesture{
+    UITapGestureRecognizer *touchOnView = [[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapUpInside)] autorelease];
+    
+    [touchOnView setNumberOfTapsRequired:1];
+    [touchOnView setNumberOfTouchesRequired:1];
+    
+    [self addGestureRecognizer:touchOnView];
+}
+
+-(void)tapUpInside{
+    NSLog(@"taped");
+}
 
 @end

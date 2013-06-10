@@ -13,6 +13,14 @@
 
 @synthesize motherView,delegate,currentDragableView;
 
+-(id)initWithFrame:(CGRect)frame{
+    self = [super initWithFrame:frame];
+    if(self){
+        [self addTapGesture];
+    }
+    return self;
+}
+
 -(CGRect)positionInMother{
     return CGRectMake(self.frame.origin.x+motherView.frame.origin.x,
                       self.frame.origin.y+motherView.frame.origin.y,
@@ -22,7 +30,7 @@
 
 -(void) dropIn:(DragableView *) dragableView{
     if(self.currentDragableView != nil){
-        [delegate replace:self.currentDragableView by:dragableView from:self];
+        [delegate replace:self.currentDragableView by:dragableView];
     }
     self.currentDragableView = dragableView;
 }
@@ -32,6 +40,19 @@
 }
 -(void)movedIn:(DragableView *) dragableView{
     
+}
+
+-(void) addTapGesture{
+    UITapGestureRecognizer *touchOnView = [[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapUpInside)] autorelease];
+    
+    [touchOnView setNumberOfTapsRequired:1];
+    [touchOnView setNumberOfTouchesRequired:1];
+    
+    [self addGestureRecognizer:touchOnView];
+}
+
+-(void)tapUpInside{
+    NSLog(@"zone tapped");
 }
 
 @end

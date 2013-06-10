@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		5B03683317617EE00050A4FF /* hat.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B03683217617EE00050A4FF /* hat.png */; };
 		5B0368351761888E0050A4FF /* shoe.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B0368341761888E0050A4FF /* shoe.png */; };
+		5B25C0FF17658D6A006F7096 /* PassthroughView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B25C0FE17658D6A006F7096 /* PassthroughView.m */; };
 		5B2C88F81760A48E002591CF /* StaticView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B2C88F71760A48E002591CF /* StaticView.m */; };
 		5B2C88FB1760A6D7002591CF /* ContentReceiverView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B2C88FA1760A6D7002591CF /* ContentReceiverView.m */; };
 		5B2C88FE1760A86E002591CF /* DragableStaticContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B2C88FD1760A86E002591CF /* DragableStaticContainer.m */; };
@@ -35,6 +36,8 @@
 /* Begin PBXFileReference section */
 		5B03683217617EE00050A4FF /* hat.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hat.png; sourceTree = "<group>"; };
 		5B0368341761888E0050A4FF /* shoe.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = shoe.png; sourceTree = "<group>"; };
+		5B25C0FD17658D6A006F7096 /* PassthroughView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PassthroughView.h; sourceTree = "<group>"; };
+		5B25C0FE17658D6A006F7096 /* PassthroughView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PassthroughView.m; sourceTree = "<group>"; };
 		5B2C88F61760A48E002591CF /* StaticView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StaticView.h; sourceTree = "<group>"; };
 		5B2C88F71760A48E002591CF /* StaticView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StaticView.m; sourceTree = "<group>"; };
 		5B2C88F91760A6D7002591CF /* ContentReceiverView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContentReceiverView.h; sourceTree = "<group>"; };
@@ -85,6 +88,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5B25C0FC17658D5B006F7096 /* util */ = {
+			isa = PBXGroup;
+			children = (
+				5B25C0FD17658D6A006F7096 /* PassthroughView.h */,
+				5B25C0FE17658D6A006F7096 /* PassthroughView.m */,
+			);
+			name = util;
+			sourceTree = "<group>";
+		};
 		5B2EEE9B175F331B00CAD4AF = {
 			isa = PBXGroup;
 			children = (
@@ -145,6 +157,7 @@
 		5B2EEECD175F333000CAD4AF /* Class */ = {
 			isa = PBXGroup;
 			children = (
+				5B25C0FC17658D5B006F7096 /* util */,
 				5B2EEED7175F476200CAD4AF /* DragDropManagerVC.h */,
 				5B2EEED8175F476200CAD4AF /* DragDropManagerVC.m */,
 				5BE08CFE1760229F0037658D /* DragableList */,
@@ -272,6 +285,7 @@
 				5B2C88F81760A48E002591CF /* StaticView.m in Sources */,
 				5B2C88FB1760A6D7002591CF /* ContentReceiverView.m in Sources */,
 				5B2C88FE1760A86E002591CF /* DragableStaticContainer.m in Sources */,
+				5B25C0FF17658D6A006F7096 /* PassthroughView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

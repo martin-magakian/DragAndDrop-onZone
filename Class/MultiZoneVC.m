@@ -8,11 +8,12 @@
 
 #import "MultiZoneVC.h"
 
+
 @implementation MultiZoneVC
 
 -(id)initWithZones:(NSArray *)_zonesRect withBg:(UIView *)_bgView delegate:(id<ZoneEvent>)_delegate{
     self = [super init];
-    if(self){
+    if(self){        
         bgView = [_bgView retain];
         zoneRects = [_zonesRect retain];
         delegate = [_delegate retain];
@@ -22,10 +23,16 @@
 
 -(void) viewDidLoad{
     [super viewDidLoad];
+    
+    passView = [[PassthroughView alloc] initWithFrame:CGRectMake(0, 0, 10, 10)];
+    passView.backgroundColor = [UIColor brownColor];
+    self.view = passView;
+    
     zoneViews = [self createZonesView];
     
     [self.view addSubview:bgView];
     [self addZonesView];
+    [self addTapGesture];
 }
 
 -(void) addZonesView{
@@ -42,7 +49,6 @@
         zone.delegate = delegate;
         zone.motherView = self.view;
         zone.backgroundColor = [UIColor blueColor];
-        zone.alpha = 0.3;
         [liZoneViews addObject:zone];
     }
     return liZoneViews;
@@ -64,5 +70,17 @@
     return nil;
 }
 
+-(void) addTapGesture{
+    UITapGestureRecognizer *touchOnView = [[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapUpInside)] autorelease];
+    
+    [touchOnView setNumberOfTapsRequired:1];
+    [touchOnView setNumberOfTouchesRequired:1];
+    
+    [passView addGestureRecognizer:touchOnView];
+}
+
+-(void)tapUpInside{
+    NSLog(@"bg zone tapped");
+}
 
 @end

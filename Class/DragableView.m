@@ -13,6 +13,14 @@
 
 @synthesize delegate,staticView;
 
+-(id)initWithFrame:(CGRect)frame{
+    self = [super initWithFrame:frame];
+    if(self){
+        [self addTapGesture];
+    }
+    return self;
+}
+
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
     touchStart = [[touches anyObject] locationInView:self];
     [delegate isDragingStart:self];
@@ -38,6 +46,7 @@
 }
 
 - (void)dropInZone:(ZoneView *)zone{
+    self.currentZone = zone;
     CGRect zonePos = [zone positionInMother];
     CGPoint contentPadding = [self getContentPadding];
     CGRect newPosition = CGRectMake(zonePos.origin.x - contentPadding.x,
@@ -48,6 +57,19 @@
     [UIView animateWithDuration:0.5 animations:^{
                          self.frame = newPosition;
                      } completion:nil];
+}
+
+-(void) addTapGesture{
+    UITapGestureRecognizer *touchOnView = [[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapUpInside)] autorelease];
+    
+    [touchOnView setNumberOfTapsRequired:1];
+    [touchOnView setNumberOfTouchesRequired:1];
+    
+    [self addGestureRecognizer:touchOnView];
+}
+
+-(void)tapUpInside{
+    [delegate isTap:self];
 }
 
 @end

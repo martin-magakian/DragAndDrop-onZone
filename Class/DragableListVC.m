@@ -93,6 +93,10 @@
     [delegate isDragingMoved:dragableView];
 }
 
+-(void) isTap:(DragableView *) dragableView{
+    [delegate isTap:dragableView];
+}
+
 -(void)dealloc{
     [delegate release];
     [dragableStaticContainers release];
