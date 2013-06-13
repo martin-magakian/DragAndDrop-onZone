@@ -55,6 +55,7 @@
 -(void)backToOrigin:(DragableView *)dragableView{
     
     [dList enableScrool:YES]; //bug correction when drop dragableView in UIScroll view we get an tap event and note a drop event.
+    [self tapIsUnselect]; //if back to home we can't have anything selected anymore
     
     if(dragableView.currentZone != nil){
         [dragableView.currentZone movedOut:dragableView];
