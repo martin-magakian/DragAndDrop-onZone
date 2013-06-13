@@ -30,11 +30,11 @@
 
 -(void)toDisplay:(BOOL)isDisplay{
     if(isDisplay){
-        [UIView animateWithDuration:0.2 animations:^{
+        [UIView animateWithDuration:0.15 animations:^{
             self.alpha = 1.0;
         }];
     }else{
-        [UIView animateWithDuration:0.2 animations:^{
+        [UIView animateWithDuration:0.15 animations:^{
             self.alpha = 0.0;
         }];
     }
