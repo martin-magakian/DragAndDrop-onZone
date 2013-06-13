@@ -45,6 +45,8 @@
 
 
 
+
+
 @protocol StaticViewEvent <NSObject>
 
 -(void) isStaticTap:(StaticView *) staticView;

@@ -12,6 +12,7 @@
 #import "DragDropManagerVC.h"
 #import "StaticView.h"
 #import "DragableStaticContainer.h"
+#import "EnableDisableView.h"
 
 
 @implementation ViewController
@@ -35,15 +36,13 @@
     DragableView *dragable1 = [[DragableView alloc] initWithFrame:viewRect];
     UILabel *content1 = [[UILabel alloc] init];
     content1.text = text;
-    content1.textColor = [UIColor blueColor];
     [content1 sizeToFit];
+    dragable1.bgContent = [[EnableDisableView alloc] initWithFrame:viewRect];
     dragable1.content = content1;
-    dragable1.backgroundColor = [UIColor redColor];
     
     StaticView *static1 = [[StaticView alloc] initWithFrame:viewRect];
     UILabel *content1Disalbe = [[UILabel alloc] init];
     content1Disalbe.text = text;
-    content1Disalbe.textColor = [UIColor blackColor];
     [content1Disalbe sizeToFit];
     static1.content = content1Disalbe;
     static1.backgroundColor = [UIColor grayColor];
@@ -57,8 +56,9 @@
     
     DragableView *dragable3 = [[DragableView alloc] initWithFrame:viewRect];
     UIImageView *content3 = [[UIImageView alloc] initWithImage:[UIImage imageNamed:imageName]];
+    dragable3.bgContent = [[EnableDisableView alloc] initWithFrame:viewRect];
     dragable3.content = content3;
-    dragable3.backgroundColor = [UIColor purpleColor];
+
     
     StaticView *static3 = [[StaticView alloc] initWithFrame:viewRect];
     UIImageView *content3Disable = [[UIImageView alloc] initWithImage:[UIImage imageNamed:imageName]];

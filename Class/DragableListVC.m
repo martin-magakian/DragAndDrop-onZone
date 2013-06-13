@@ -83,15 +83,28 @@
                       staticView.frame.size.width, staticView.frame.size.height);
 }
 
+-(void)releaseCurrentSelected{
+    [currentSelected setUnSelected];
+    //[currentSelected release];
+}
+
+-(void)selectDragbleView:(DragableView *)dragableView{
+    [self releaseCurrentSelected];
+    currentSelected = [dragableView retain];
+    [currentSelected setSelected];
+    [delegate selected:dragableView];
+}
 
 -(void) isDragingStart:(DragableView *) dragableView{
     [self enableScrool:NO];
+    [self selectDragbleView:dragableView];
     [delegate isDragingStart:dragableView];
 }
 
 
 -(void) isDragingEnd:(DragableView *) dragableView{
     [self enableScrool:YES];
+    [self releaseCurrentSelected];
     [delegate isDragingEnd:dragableView];
 }
 
@@ -101,13 +114,10 @@
 
 -(void) isTap:(DragableView *) dragableView{
     if(!dragableView.isHome){
+        [dragableView setUnSelected];
         [delegate requestHome:dragableView];
     }else{
-        [currentSelected setUnSelected];
-        [currentSelected release];
-        currentSelected = [dragableView retain];
-        [currentSelected setSelected];
-        [delegate selected:dragableView];
+        [self selectDragbleView:dragableView];
     }
 }
 

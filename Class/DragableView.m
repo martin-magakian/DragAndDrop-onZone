@@ -39,20 +39,20 @@
 }
 
 -(void)movedOutZone:(ZoneView *)matchingZone{
-    self.backgroundColor = [UIColor greenColor];
+    [self.bgContent toDisplay:YES];
 }
 
 -(void)movedInZone:(ZoneView *) matchingZone{
-    self.backgroundColor = [UIColor clearColor];
+    [self.bgContent toDisplay:NO];
 }
 
 
 -(void)setUnSelected{
-    self.backgroundColor = [UIColor greenColor];
+    [self.bgContent selected:NO];
 }
 
 -(void)setSelected{
-    self.backgroundColor = [UIColor blueColor];
+    [self.bgContent selected:YES];
 }
 
 - (void)dropInZone:(ZoneView *)zone{

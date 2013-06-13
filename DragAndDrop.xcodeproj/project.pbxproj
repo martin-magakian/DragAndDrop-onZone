@@ -28,6 +28,7 @@
 		5B2EEED3175F36F500CAD4AF /* DragableListVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B2EEED2175F36F500CAD4AF /* DragableListVC.m */; };
 		5B2EEED6175F3D5F00CAD4AF /* DragableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B2EEED5175F3D5F00CAD4AF /* DragableView.m */; };
 		5B2EEED9175F476200CAD4AF /* DragDropManagerVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B2EEED8175F476200CAD4AF /* DragDropManagerVC.m */; };
+		5B670AC01769B9EB0006BC96 /* EnableDisableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B670ABF1769B9EB0006BC96 /* EnableDisableView.m */; };
 		5BCD2CA3175F528D00EA9299 /* doduck.png in Resources */ = {isa = PBXBuildFile; fileRef = 5BCD2CA2175F528D00EA9299 /* doduck.png */; };
 		5BCD2CA6175F53ED00EA9299 /* MultiZoneVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BCD2CA5175F53ED00EA9299 /* MultiZoneVC.m */; };
 		5BE08D05176038E50037658D /* ZoneView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BE08D04176038E50037658D /* ZoneView.m */; };
@@ -67,6 +68,8 @@
 		5B2EEED5175F3D5F00CAD4AF /* DragableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DragableView.m; sourceTree = "<group>"; };
 		5B2EEED7175F476200CAD4AF /* DragDropManagerVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DragDropManagerVC.h; sourceTree = "<group>"; };
 		5B2EEED8175F476200CAD4AF /* DragDropManagerVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DragDropManagerVC.m; sourceTree = "<group>"; };
+		5B670ABE1769B9EB0006BC96 /* EnableDisableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EnableDisableView.h; sourceTree = "<group>"; };
+		5B670ABF1769B9EB0006BC96 /* EnableDisableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EnableDisableView.m; sourceTree = "<group>"; };
 		5BCD2CA2175F528D00EA9299 /* doduck.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = doduck.png; sourceTree = "<group>"; };
 		5BCD2CA4175F53ED00EA9299 /* MultiZoneVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MultiZoneVC.h; sourceTree = "<group>"; };
 		5BCD2CA5175F53ED00EA9299 /* MultiZoneVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MultiZoneVC.m; sourceTree = "<group>"; };
@@ -189,6 +192,8 @@
 				5B2C88FA1760A6D7002591CF /* ContentReceiverView.m */,
 				5B2C88FC1760A86E002591CF /* DragableStaticContainer.h */,
 				5B2C88FD1760A86E002591CF /* DragableStaticContainer.m */,
+				5B670ABE1769B9EB0006BC96 /* EnableDisableView.h */,
+				5B670ABF1769B9EB0006BC96 /* EnableDisableView.m */,
 			);
 			name = DragableList;
 			sourceTree = "<group>";
@@ -286,6 +291,7 @@
 				5B2C88FB1760A6D7002591CF /* ContentReceiverView.m in Sources */,
 				5B2C88FE1760A86E002591CF /* DragableStaticContainer.m in Sources */,
 				5B25C0FF17658D6A006F7096 /* PassthroughView.m in Sources */,
+				5B670AC01769B9EB0006BC96 /* EnableDisableView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

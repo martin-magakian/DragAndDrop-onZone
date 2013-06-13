@@ -10,7 +10,7 @@
 
 @implementation ContentReceiverView
 
-@synthesize content;
+@synthesize content,bgContent;
 
 -(void) setContent:(UIView *)_content{
     [content release];
@@ -20,6 +20,13 @@
                                content.frame.size.width,
                                content.frame.size.height);
     [self addSubview:content];
+}
+
+-(void)setBgContent:(UIView<EnableDisable> *)_bgContent{
+    [bgContent release];
+    bgContent = [_bgContent retain];
+    [self addSubview:bgContent];
+    [bgContent selected:NO];
 }
 
 -(CGRect)getContentFrame{
