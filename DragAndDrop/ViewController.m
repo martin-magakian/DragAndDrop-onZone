@@ -22,7 +22,10 @@
 {
     [super viewDidLoad];
 	
-    DragDropManagerVC *dd = [[DragDropManagerVC alloc] initWithDragableStaticControllers:[self DragableStaticControllers] withZones:[self createZones] forZoneView:[self createZoneView]];
+    NSArray *dragableStaticControllers = [self dragableStaticControllers];
+    NSArray *zones =[self createZones];
+    
+    DragDropManagerVC *dd = [[DragDropManagerVC alloc] initWithDragableStaticControllers:dragableStaticControllers withZones:zones forZoneView:[self createZoneView]];
     dd.view.frame = CGRectMake(20, 100, 700, 500);
     dd.view.backgroundColor = [UIColor yellowColor];
     
@@ -70,7 +73,7 @@
     return dragableVC3;
 }
 
--(NSArray *)DragableStaticControllers{
+-(NSArray *)dragableStaticControllers{
     
     DragableStaticContainer *dragableVC1 = [self createDragableStaticContainerText:@"Body"];
     DragableStaticContainer *dragableVC2 = [self createDragableStaticContainerText:@"Some water"];
@@ -104,4 +107,7 @@
     return img;
 }
 
+- (IBAction)checkAnswersTouched:(id)sender {
+    //TOOD
+}
 @end
