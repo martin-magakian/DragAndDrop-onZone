@@ -106,31 +106,16 @@
     if(matchingZone != lastOverZone && lastOverZone != nil){
         [lastOverZone movedOut:dragableView];
         [dragableView movedOutZone:lastOverZone];
-        NSLog(@"movedout (or change)");
     }
     
     if(matchingZone != nil){
         if(lastOverZone != matchingZone){
             [matchingZone movedIn:dragableView];
             [dragableView movedInZone:matchingZone];
-            NSLog(@"movedIn");
         }
     }
     
     lastOverZone = matchingZone;
-    
-    
-    /*if(matchingZone != nil){
-        [matchingZone movedIn:dragableView];
-        [dragableView movedInZone:matchingZone];
-        NSLog(@"movedIn");
-        lastOverZone = matchingZone;
-    }else if(lastOverZone != nil){
-        NSLog(@"movedOut");
-        [lastOverZone movedOut:dragableView];
-        [dragableView movedOutZone:lastOverZone];
-        lastOverZone = nil;
-    }*/
 }
 
 -(void)dealloc{
