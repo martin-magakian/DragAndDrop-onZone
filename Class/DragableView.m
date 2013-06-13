@@ -64,7 +64,7 @@
                                      self.frame.size.width,
                                      self.frame.size.height);
     
-    [UIView animateWithDuration:0.5 animations:^{
+    [UIView animateWithDuration:0.4 animations:^{
                          self.frame = newPosition;
                      } completion:nil];
 }

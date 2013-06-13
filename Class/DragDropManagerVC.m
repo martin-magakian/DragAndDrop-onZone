@@ -12,12 +12,15 @@
 
 @implementation DragDropManagerVC
 
+@synthesize currentSelectedDragableView;
+
 -(id)initWithDragableStaticControllers:(NSArray *)_dragableStaticControllers withZones:(NSArray *)_zones forZoneView:(UIView *)_zoneView{
     self = [super init];
     if(self){
         dragableStaticControllers = [_dragableStaticControllers retain];
         zones = [_zones retain];
         zoneView = [_zoneView retain];
+        [self addTapGesture];
     }
     return self;
 }
@@ -33,13 +36,19 @@
     [self.view addSubview:dZone.view];
 }
 
+-(void)invisiblePopOutDragableList:(DragableView *) dragableView{
+    //the dragableView will exit the DragableListVC and go on top view
+    CGRect dragFrom = [dList positionInScrollViewForMotherView:dragableView.staticView];
+    dragableView.frame = dragFrom;
+    dragableView.isHome = NO;
+    [self.view addSubview:dragableView];
+}
+
 -(void) isDragingStart:(DragableView *) dragableView{
     
     if([dList isInList:dragableView]){
-        CGRect dragFrom = [dList positionInScrollViewForMotherView:dragableView.staticView];
-        dragableView.frame = dragFrom;
-        dragableView.isHome = NO;
-        [self.view addSubview:dragableView];
+        [self invisiblePopOutDragableList:dragableView];
+
     }
 }
 
@@ -79,24 +88,37 @@
 }
 
 -(void) selected:(DragableView *) dragableView{
-    NSLog(@"selected");
+    self.currentSelectedDragableView = dragableView;
 }
 
 -(void) isZoneTouched:(ZoneView *)touchedZone{
-    NSLog(@"z touched");
+    if(self.currentSelectedDragableView != nil){
+        [self invisiblePopOutDragableList:self.currentSelectedDragableView];
+        [self movedIn:self.currentSelectedDragableView matchingZone:touchedZone];
+        [self dropIn:self.currentSelectedDragableView intoMatchingZone:touchedZone];
+    }
+}
+
+- (void)dropIn:(DragableView *)dragableView intoMatchingZone:(ZoneView *)matchingZone {
+    [matchingZone dropIn:dragableView];
+    [dragableView dropInZone:matchingZone];
+    dragableView.isHome = NO;
 }
 
 -(void) isDragingEnd:(DragableView *) dragableView{
     
     ZoneView *matchingZone = [dZone inAZone:dragableView];
     if(matchingZone != nil){
-        [matchingZone dropIn:dragableView];
-        [dragableView dropInZone:matchingZone];
-        dragableView.isHome = NO;
+        [self dropIn:dragableView intoMatchingZone:matchingZone];
     }else{
         [self backToOrigin:dragableView];
     }
     lastOverZone = nil;
+}
+
+- (void)movedIn:(DragableView *)dragableView matchingZone:(ZoneView *)matchingZone {
+    [matchingZone movedIn:dragableView];
+    [dragableView movedInZone:matchingZone];
 }
 
 -(void) isDragingMoved:(DragableView *) dragableView{
@@ -110,12 +132,25 @@
     
     if(matchingZone != nil){
         if(lastOverZone != matchingZone){
-            [matchingZone movedIn:dragableView];
-            [dragableView movedInZone:matchingZone];
+            [self movedIn:dragableView matchingZone:matchingZone];
         }
     }
     
     lastOverZone = matchingZone;
+}
+
+-(void) addTapGesture{
+    UITapGestureRecognizer *touchOnView = [[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapIsUnselect)] autorelease];
+    
+    [touchOnView setNumberOfTapsRequired:5];
+    [touchOnView setNumberOfTouchesRequired:1];
+    
+    [self.view addGestureRecognizer:touchOnView];
+}
+
+-(void)tapIsUnselect{
+    [currentSelectedDragableView setUnSelected];
+    self.currentSelectedDragableView = nil;
 }
 
 -(void)dealloc{

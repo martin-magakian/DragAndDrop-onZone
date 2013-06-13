@@ -57,6 +57,7 @@
 
 -(void) replace:(DragableView *)oldDragable by:(DragableView *)newDragble;
 -(void) isZoneTouched:(ZoneView *)touchedZone;
+-(void) tapIsUnselect;
 
 @end
 

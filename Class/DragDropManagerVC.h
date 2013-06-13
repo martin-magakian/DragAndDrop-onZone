@@ -22,6 +22,8 @@
     ZoneView *lastOverZone;
 }
 
+@property(retain, nonatomic)DragableView *currentSelectedDragableView;
+
 -(id)initWithDragableStaticControllers:(NSArray *)_dragableStaticControllers withZones:(NSArray *)_zones forZoneView:(UIView *)_zoneView;
 
 @end

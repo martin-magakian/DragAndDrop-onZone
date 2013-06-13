@@ -65,13 +65,12 @@
         if(CGRectIntersectsRect(posInMother,content)){
             return zoneView;
         }
-        
     }
     return nil;
 }
 
 -(void) addTapGesture{
-    UITapGestureRecognizer *touchOnView = [[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapUpInside)] autorelease];
+    UITapGestureRecognizer *touchOnView = [[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapIsUnselect)] autorelease];
     
     [touchOnView setNumberOfTapsRequired:1];
     [touchOnView setNumberOfTouchesRequired:1];
@@ -79,8 +78,8 @@
     [passView addGestureRecognizer:touchOnView];
 }
 
--(void)tapUpInside{
-    NSLog(@"bg zone tapped");
+-(void)tapIsUnselect{
+    [delegate tapIsUnselect];
 }
 
 @end
