@@ -11,12 +11,13 @@
 
 @implementation DragableView
 
-@synthesize delegate,staticView;
+@synthesize delegate,staticView,isHome;
 
 -(id)initWithFrame:(CGRect)frame{
     self = [super initWithFrame:frame];
     if(self){
         [self addTapGesture];
+        self.isHome = YES;
     }
     return self;
 }

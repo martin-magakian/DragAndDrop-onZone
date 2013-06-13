@@ -10,6 +10,8 @@
 
 @implementation StaticView
 
+@synthesize delegate, dragableView;
+
 -(id)initWithFrame:(CGRect)frame{
     self = [super initWithFrame:frame];
     if(self){
@@ -28,7 +30,7 @@
 }
 
 -(void)tapUpInside{
-    NSLog(@"taped");
+    [delegate isStaticTap:self];
 }
 
 @end

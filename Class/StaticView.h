@@ -8,7 +8,11 @@
 
 #import <UIKit/UIKit.h>
 #import "ContentReceiverView.h"
+#import "DragableView.h"
 
 @interface StaticView : ContentReceiverView
+
+@property(retain, nonatomic) DragableView *dragableView;
+@property(retain, nonatomic) id<StaticViewEvent> delegate;
 
 @end

@@ -13,9 +13,6 @@
 #import "StaticView.h"
 #import "DragableStaticContainer.h"
 
-@interface ViewController ()
-
-@end
 
 @implementation ViewController
 

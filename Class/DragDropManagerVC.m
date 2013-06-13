@@ -7,6 +7,7 @@
 //
 #import "DragDropManagerVC.h"
 #import "ZoneView.h"
+#import "StaticView.h"
 
 
 @implementation DragDropManagerVC
@@ -42,7 +43,7 @@
 }
 
 -(void)backToOrigin:(DragableView *)dragableView{
-    
+
     if(dragableView.currentZone != nil){
         [dragableView.currentZone movedOut:dragableView];
         [dragableView movedOutZone:dragableView.currentZone];
@@ -56,6 +57,7 @@
     } completion:^(BOOL finished){
         dragableView.frame = dragableView.staticView.frame;
         [dList.view addSubview:dragableView];
+        dragableView.isHome = YES;
     }];
 }
 
@@ -69,12 +71,21 @@
     [self backToOrigin:dragableView];
 }
 
+-(void)requestHome:(DragableView *)dragableView{
+    [self backToOrigin:dragableView];
+}
+
+-(void) isZoneTouched:(ZoneView *)touchedZone{
+    NSLog(@"z touched");
+}
+
 -(void) isDragingEnd:(DragableView *) dragableView{
     
     ZoneView *matchingZone = [dZone inAZone:dragableView];
     if(matchingZone != nil){
         [matchingZone dropIn:dragableView];
         [dragableView dropInZone:matchingZone];
+        dragableView.isHome = NO;
     }else{
         [self backToOrigin:dragableView];
     }

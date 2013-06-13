@@ -9,10 +9,10 @@
 #import <UIKit/UIKit.h>
 #import "DragableView.h"
 
-@interface DragableListVC : UIViewController<DragableViewEvent>{
+@interface DragableListVC : UIViewController<DragableViewEvent,StaticViewEvent>{
     NSArray* dragableStaticContainers;
     UIScrollView *scroll;
-    id<DragableViewEvent> delegate;
+    id<DragableManager> delegate;
 }
 
 -(id)initWithDragableStaticContainers:(NSArray *)_dragableItems withDelegate:(id<DragableViewEvent>)_delegate;

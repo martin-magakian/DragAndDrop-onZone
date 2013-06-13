@@ -8,18 +8,45 @@
 
 #import <UIKit/UIKit.h>
 #import "ContentReceiverView.h"
-#import "StaticView.h"
-
 
 @class ZoneView;
 @class DragableView;
+@class StaticView;
 
 @protocol DragableViewEvent <NSObject>
 
 -(void) isDragingStart:(DragableView *) dragableView;
 -(void) isDragingEnd:(DragableView *) dragableView;
 -(void) isDragingMoved:(DragableView *) dragableView;
--(void) isTap:(DragableView *) dragableView;
+
+@end
+
+@protocol DragableViewAction <NSObject>
+
+-(void) requestHome:(DragableView *) dragableView;
+
+@end
+
+@protocol DragableViewList <NSObject>
+
+-(void) isTap:(DragableView *)touched;
+
+@end
+
+
+@protocol DragableManager <DragableViewAction,DragableViewEvent>
+//nothing
+@end
+
+@protocol DragableListManager <DragableViewList,DragableViewEvent>
+//nothing
+@end
+
+
+
+@protocol StaticViewEvent <NSObject>
+
+-(void) isStaticTap:(StaticView *) staticView;
 
 @end
 
@@ -35,9 +62,10 @@
     CGRect originalFrame;
 }
 @property(assign) CGPoint correction;
-@property(retain, nonatomic) id<DragableViewEvent> delegate;
+@property(retain, nonatomic) id<DragableListManager> delegate;
 @property(retain,nonatomic) StaticView *staticView;
 @property(retain, nonatomic) ZoneView *currentZone;
+@property(assign) BOOL isHome;
 
 -(void)movedOutZone:(ZoneView *)matchingZone;
 -(void)movedInZone:(ZoneView *) matchingZone;

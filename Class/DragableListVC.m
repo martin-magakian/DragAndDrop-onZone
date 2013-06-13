@@ -14,7 +14,7 @@
 @implementation DragableListVC
 
 
--(id)initWithDragableStaticContainers:(NSArray *)_dragableStaticContainers withDelegate:(id<DragableViewEvent>)_delegate{
+-(id)initWithDragableStaticContainers:(NSArray *)_dragableStaticContainers withDelegate:(id<DragableManager>)_delegate{
     self = [super init];
     if(self){
         dragableStaticContainers = [_dragableStaticContainers retain];
@@ -41,11 +41,13 @@
         
         
         dsContainer.dragableView.staticView = dsContainer.staticView;
+        dsContainer.staticView.dragableView = dsContainer.dragableView;
         
         [scroll addSubview:dsContainer.staticView];
         [scroll addSubview:dsContainer.dragableView];
         
         dsContainer.dragableView.delegate = self;
+        dsContainer.staticView.delegate = self;
         
         y += dsContainer.dragableView.frame.size.height + PADDING_BOTTOM_ITEM;
     }
@@ -94,7 +96,13 @@
 }
 
 -(void) isTap:(DragableView *) dragableView{
-    [delegate isTap:dragableView];
+    if(!dragableView.isHome){
+        [delegate requestHome:dragableView];
+    }
+}
+
+-(void) isStaticTap:(StaticView *) staticView{
+    [delegate requestHome:staticView.dragableView];
 }
 
 -(void)dealloc{
