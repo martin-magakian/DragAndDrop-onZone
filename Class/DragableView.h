@@ -24,6 +24,7 @@
 @protocol DragableViewAction <NSObject>
 
 -(void) requestHome:(DragableView *) dragableView;
+-(void) selected:(DragableView *) dragableView;
 
 @end
 
@@ -69,7 +70,10 @@
 
 -(void)movedOutZone:(ZoneView *)matchingZone;
 -(void)movedInZone:(ZoneView *) matchingZone;
-- (void)dropInZone:(ZoneView *)zone;
+-(void)dropInZone:(ZoneView *)zone;
+
+-(void)setUnSelected;
+-(void)setSelected;
 
 
 @end

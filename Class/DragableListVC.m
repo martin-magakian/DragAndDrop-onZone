@@ -71,6 +71,10 @@
     return NO;
 }
 
+-(void)enableScrool:(BOOL)enable{
+    scroll.scrollEnabled = enable;
+}
+
 
 -(CGRect) positionInScrollViewForMotherView:(StaticView *)staticView{
     CGPoint scrollPos = scroll.contentOffset;
@@ -81,13 +85,13 @@
 
 
 -(void) isDragingStart:(DragableView *) dragableView{
-    scroll.scrollEnabled = NO;
+    [self enableScrool:NO];
     [delegate isDragingStart:dragableView];
 }
 
 
 -(void) isDragingEnd:(DragableView *) dragableView{
-    scroll.scrollEnabled = YES;
+    [self enableScrool:YES];
     [delegate isDragingEnd:dragableView];
 }
 
@@ -98,6 +102,12 @@
 -(void) isTap:(DragableView *) dragableView{
     if(!dragableView.isHome){
         [delegate requestHome:dragableView];
+    }else{
+        [currentSelected setUnSelected];
+        [currentSelected release];
+        currentSelected = [dragableView retain];
+        [currentSelected setSelected];
+        [delegate selected:dragableView];
     }
 }
 

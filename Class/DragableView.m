@@ -46,6 +46,15 @@
     self.backgroundColor = [UIColor clearColor];
 }
 
+
+-(void)setUnSelected{
+    self.backgroundColor = [UIColor greenColor];
+}
+
+-(void)setSelected{
+    self.backgroundColor = [UIColor blueColor];
+}
+
 - (void)dropInZone:(ZoneView *)zone{
     self.currentZone = zone;
     CGRect zonePos = [zone positionInMother];

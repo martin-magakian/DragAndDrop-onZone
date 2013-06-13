@@ -52,7 +52,7 @@
 }
 
 -(void)tapUpInside{
-    NSLog(@"zone tapped");
+    [delegate isZoneTouched:self];
 }
 
 @end

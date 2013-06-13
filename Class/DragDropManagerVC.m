@@ -38,12 +38,15 @@
     if([dList isInList:dragableView]){
         CGRect dragFrom = [dList positionInScrollViewForMotherView:dragableView.staticView];
         dragableView.frame = dragFrom;
+        dragableView.isHome = NO;
         [self.view addSubview:dragableView];
     }
 }
 
 -(void)backToOrigin:(DragableView *)dragableView{
-
+    
+    [dList enableScrool:YES]; //bug correction when drop dragableView in UIScroll view we get an tap event and note a drop event.
+    
     if(dragableView.currentZone != nil){
         [dragableView.currentZone movedOut:dragableView];
         [dragableView movedOutZone:dragableView.currentZone];
@@ -73,6 +76,10 @@
 
 -(void)requestHome:(DragableView *)dragableView{
     [self backToOrigin:dragableView];
+}
+
+-(void) selected:(DragableView *) dragableView{
+    NSLog(@"selected");
 }
 
 -(void) isZoneTouched:(ZoneView *)touchedZone{
