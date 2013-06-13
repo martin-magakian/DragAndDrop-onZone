@@ -39,7 +39,6 @@
     //In order to don't loose the reference when an other view is comming by...
     if(self.currentDragableView == dragableView){
         self.currentDragableView = nil;
-        NSLog(@"moved out");
     }
 }
 
