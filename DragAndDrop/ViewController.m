@@ -38,16 +38,16 @@
     CGRect viewRect = CGRectMake(0, 0, 100, 50);
     
     DragableView *dragable1 = [[DragableView alloc] initWithFrame:viewRect];
-    LabelScalableView *content1 = [[LabelScalableView alloc] init];
+    LabelScalableView *content1 = [[LabelScalableView alloc] initWithFrame:CGRectMake(0, 0, 56, 25)];
     content1.text = text;
-    [content1 sizeToFit];
+    [content1 fitCurrentFrame];
     dragable1.bgContent = [[EnableDisableView alloc] initWithFrame:viewRect];
     dragable1.content = content1;
     
     StaticView *static1 = [[StaticView alloc] initWithFrame:viewRect];
-    LabelScalableView *content1Disalbe = [[LabelScalableView alloc] init];
+    LabelScalableView *content1Disalbe = [[LabelScalableView alloc] initWithFrame:CGRectMake(0, 0, 56, 25)];
     content1Disalbe.text = text;
-    [content1Disalbe sizeToFit];
+    [content1Disalbe fitCurrentFrame];
     static1.bgContent = [[EnableDisableView alloc] initWithFrame:viewRect];
     static1.bgContent.backgroundColor = [UIColor grayColor];
     static1.content = content1Disalbe;

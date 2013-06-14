@@ -11,4 +11,7 @@
 
 @interface LabelScalableView : UILabel<ScalableView>
 
+
+-(void)fitCurrentFrame;
+
 @end
