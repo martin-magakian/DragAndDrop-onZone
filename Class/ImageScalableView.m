@@ -11,7 +11,10 @@
 @implementation ImageScalableView
 
 -(void)resizeScale:(CGFloat)scale{
-    NSLog(@"todo resize img");
+    self.frame = CGRectMake(0,
+                            0,
+                            self.frame.size.width * scale,
+                            self.frame.size.height * scale);
 }
 
 

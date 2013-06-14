@@ -53,29 +53,6 @@
     return fminf(scaleW, scaleH);
 }
 
-
-/*-(void)setup{
-    Scale *scale = [self resizeScale];
-    CGFloat minScale = [scale min];
-    
-    bgView.frame = CGRectMake(0,
-                              0,
-                              bgView.frame.size.width *minScale,
-                              bgView.frame.size.height *minScale);
-    
-    [self.view addSubview:bgView];
-    
-    for(UIView *zone in zoneViews){
-        zone.frame = CGRectMake(zone.frame.origin.x * minScale,
-                                zone.frame.origin.y * minScale,
-                                zone.frame.size.width *minScale,
-                                zone.frame.size.height *minScale);
-        
-        [self.view addSubview:zone];
-    }
-}*/
-
-
 -(void)viewDidLoad{
     [super viewDidLoad];
     CGFloat scale = [self resizedScale:zoneView];

@@ -11,7 +11,10 @@
 @implementation LabelScalableView
 
 -(void)resizeScale:(CGFloat)scale{
-    NSLog(@"todo resize txt");
+    self.frame = CGRectMake(0,
+                            0,
+                            self.frame.size.width,
+                            self.frame.size.height);
 }
 
 

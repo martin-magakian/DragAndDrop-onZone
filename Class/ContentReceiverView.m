@@ -12,13 +12,18 @@
 
 @synthesize content,bgContent;
 
--(void) setContent:(UIView<ScalableView>*)_content{
-    [content release];
-    content = [_content retain];
+
+-(void) centerContent{
     content.frame = CGRectMake(self.frame.size.width/2-content.frame.size.width/2,
                                self.frame.size.height/2-content.frame.size.height/2,
                                content.frame.size.width,
                                content.frame.size.height);
+}
+
+-(void) setContent:(UIView<ScalableView>*)_content{
+    [content release];
+    content = [_content retain];
+    [self centerContent];
     [self addSubview:content];
 }
 
@@ -44,6 +49,7 @@
 -(void)resizeScale:(CGFloat)scale{
     [bgContent resizeScale:scale];
     [content resizeScale:scale];
+    [self centerContent];
 }
 
 @end
