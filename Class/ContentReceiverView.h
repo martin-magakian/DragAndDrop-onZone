@@ -15,14 +15,20 @@
 
 @end
 
-@interface ContentReceiverView : UIView{
+@protocol ScalableView <NSObject>
+
+-(void)resizeScale:(CGFloat)scale;
+
+@end
+
+@interface ContentReceiverView : UIView<ScalableView>{
     
 }
 
 -(CGPoint) getContentPadding;
 -(CGRect)getContentFrame;
 
-@property(retain, nonatomic) UIView<EnableDisable>* bgContent;
-@property(retain, nonatomic) UIView* content;
+@property(retain, nonatomic) UIView<EnableDisable,ScalableView>* bgContent;
+@property(retain, nonatomic) UIView<ScalableView>* content;
 
 @end

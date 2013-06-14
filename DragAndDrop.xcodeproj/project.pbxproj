@@ -29,6 +29,8 @@
 		5B2EEED6175F3D5F00CAD4AF /* DragableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B2EEED5175F3D5F00CAD4AF /* DragableView.m */; };
 		5B2EEED9175F476200CAD4AF /* DragDropManagerVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B2EEED8175F476200CAD4AF /* DragDropManagerVC.m */; };
 		5B670AC01769B9EB0006BC96 /* EnableDisableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B670ABF1769B9EB0006BC96 /* EnableDisableView.m */; };
+		5B9676BD176ADF87006873AD /* LabelScalableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B9676BC176ADF87006873AD /* LabelScalableView.m */; };
+		5B9676C0176AEF32006873AD /* ImageScalableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B9676BF176AEF32006873AD /* ImageScalableView.m */; };
 		5BCD2CA3175F528D00EA9299 /* doduck.png in Resources */ = {isa = PBXBuildFile; fileRef = 5BCD2CA2175F528D00EA9299 /* doduck.png */; };
 		5BCD2CA6175F53ED00EA9299 /* MultiZoneVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BCD2CA5175F53ED00EA9299 /* MultiZoneVC.m */; };
 		5BE08D05176038E50037658D /* ZoneView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BE08D04176038E50037658D /* ZoneView.m */; };
@@ -70,6 +72,10 @@
 		5B2EEED8175F476200CAD4AF /* DragDropManagerVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DragDropManagerVC.m; sourceTree = "<group>"; };
 		5B670ABE1769B9EB0006BC96 /* EnableDisableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EnableDisableView.h; sourceTree = "<group>"; };
 		5B670ABF1769B9EB0006BC96 /* EnableDisableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EnableDisableView.m; sourceTree = "<group>"; };
+		5B9676BB176ADF87006873AD /* LabelScalableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LabelScalableView.h; sourceTree = "<group>"; };
+		5B9676BC176ADF87006873AD /* LabelScalableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LabelScalableView.m; sourceTree = "<group>"; };
+		5B9676BE176AEF32006873AD /* ImageScalableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageScalableView.h; sourceTree = "<group>"; };
+		5B9676BF176AEF32006873AD /* ImageScalableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageScalableView.m; sourceTree = "<group>"; };
 		5BCD2CA2175F528D00EA9299 /* doduck.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = doduck.png; sourceTree = "<group>"; };
 		5BCD2CA4175F53ED00EA9299 /* MultiZoneVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MultiZoneVC.h; sourceTree = "<group>"; };
 		5BCD2CA5175F53ED00EA9299 /* MultiZoneVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MultiZoneVC.m; sourceTree = "<group>"; };
@@ -169,6 +175,17 @@
 			path = Class;
 			sourceTree = "<group>";
 		};
+		5B9676BA176ADF75006873AD /* ScalableView */ = {
+			isa = PBXGroup;
+			children = (
+				5B9676BB176ADF87006873AD /* LabelScalableView.h */,
+				5B9676BC176ADF87006873AD /* LabelScalableView.m */,
+				5B9676BE176AEF32006873AD /* ImageScalableView.h */,
+				5B9676BF176AEF32006873AD /* ImageScalableView.m */,
+			);
+			name = ScalableView;
+			sourceTree = "<group>";
+		};
 		5BCD2CA1175F528D00EA9299 /* img */ = {
 			isa = PBXGroup;
 			children = (
@@ -182,6 +199,7 @@
 		5BE08CFE1760229F0037658D /* DragableList */ = {
 			isa = PBXGroup;
 			children = (
+				5B9676BA176ADF75006873AD /* ScalableView */,
 				5B2EEED1175F36F500CAD4AF /* DragableListVC.h */,
 				5B2EEED2175F36F500CAD4AF /* DragableListVC.m */,
 				5B2EEED4175F3D5F00CAD4AF /* DragableView.h */,
@@ -292,6 +310,8 @@
 				5B2C88FE1760A86E002591CF /* DragableStaticContainer.m in Sources */,
 				5B25C0FF17658D6A006F7096 /* PassthroughView.m in Sources */,
 				5B670AC01769B9EB0006BC96 /* EnableDisableView.m in Sources */,
+				5B9676BD176ADF87006873AD /* LabelScalableView.m in Sources */,
+				5B9676C0176AEF32006873AD /* ImageScalableView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

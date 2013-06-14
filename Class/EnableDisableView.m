@@ -10,6 +10,10 @@
 
 @implementation EnableDisableView
 
+-(void)resizeScale:(CGFloat)scale{
+    
+}
+
 - (id)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];

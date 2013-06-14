@@ -58,7 +58,10 @@
 }
 
 -(void)resizeScale:(CGFloat)scale{
-    NSLog(@"todo");
+    for(DragableStaticContainer *dsContainer in dragableStaticContainers){
+        [dsContainer.dragableView resizeScale:scale];
+        [dsContainer.staticView resizeScale:scale];
+    }
 }
 
 -(BOOL)isInList:(DragableView *) dragableView{

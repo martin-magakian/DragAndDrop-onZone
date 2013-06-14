@@ -12,7 +12,7 @@
 
 @synthesize content,bgContent;
 
--(void) setContent:(UIView *)_content{
+-(void) setContent:(UIView<ScalableView>*)_content{
     [content release];
     content = [_content retain];
     content.frame = CGRectMake(self.frame.size.width/2-content.frame.size.width/2,
@@ -22,7 +22,7 @@
     [self addSubview:content];
 }
 
--(void)setBgContent:(UIView<EnableDisable> *)_bgContent{
+-(void)setBgContent:(UIView<EnableDisable,ScalableView> *)_bgContent{
     [bgContent release];
     bgContent = [_bgContent retain];
     [self addSubview:bgContent];
@@ -39,6 +39,11 @@
 -(CGPoint) getContentPadding{
     return CGPointMake(content.frame.origin.x,
                        content.frame.origin.y);
+}
+
+-(void)resizeScale:(CGFloat)scale{
+    [bgContent resizeScale:scale];
+    [content resizeScale:scale];
 }
 
 @end
