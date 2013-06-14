@@ -20,5 +20,6 @@
 
 -(id)initWithZones:(NSArray *)_zoneViews withBg:(UIView *)_bgView delegate:(id<ZoneEvent>)_delegate;
 -(ZoneView *) inAZone:(DragableView *) dragableView;
+-(void)setup;
 
 @end

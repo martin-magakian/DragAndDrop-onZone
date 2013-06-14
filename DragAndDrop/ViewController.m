@@ -117,7 +117,6 @@
     [liZoneViews addObject:[self createZoneView:CGRectMake(150, 220, 70, 60)]]; //shoe
     [liZoneViews addObject:[self createZoneView:CGRectMake(10, 10, 50, 30)]]; //sky
     
-    
     return liZoneViews;
 }
 

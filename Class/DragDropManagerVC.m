@@ -12,6 +12,9 @@
 
 @implementation DragDropManagerVC
 
+#define DRAGABLE_ZONE_HEIGHT 500
+#define DRAGABLE_ZONE_WIDTH 500
+
 @synthesize currentSelectedDragableView;
 
 -(id)initWithDragableStaticControllers:(NSArray *)_dragableStaticControllers withZones:(NSArray *)_zones forZoneView:(UIView *)_zoneView{
@@ -32,7 +35,8 @@
     [self.view addSubview:dList.view];
     
     dZone = [[MultiZoneVC alloc] initWithZones:zones withBg:zoneView delegate:self];
-    dZone.view.frame = CGRectMake(200, 50, zoneView.frame.size.width, zoneView.frame.size.height);
+    dZone.view.frame = CGRectMake(200, 50, DRAGABLE_ZONE_HEIGHT, DRAGABLE_ZONE_WIDTH);
+    [dZone setup];
     [self.view addSubview:dZone.view];
 }
 

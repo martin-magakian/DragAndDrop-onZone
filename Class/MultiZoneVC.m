@@ -32,10 +32,14 @@
 -(void) viewDidLoad{
     [super viewDidLoad];
     
-    passView = [[PassthroughView alloc] initWithFrame:CGRectMake(0, 0, 10, 10)];
+    self.view.backgroundColor = [UIColor redColor];
+    
+    passView = [[PassthroughView alloc] initWithFrame:CGRectMake(0, 0, 0, 00)];
     passView.backgroundColor = [UIColor brownColor];
     self.view = passView;
-    
+}
+
+-(void)setup{
     [self.view addSubview:bgView];
     [self addZonesView];
     [self addTapGesture];
