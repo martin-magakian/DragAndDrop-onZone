@@ -14,12 +14,11 @@
 @interface MultiZoneVC : UIViewController{
     PassthroughView *passView;
     UIView *bgView;
-    NSArray *zoneRects;
     NSArray *zoneViews;
     id<ZoneEvent> delegate;
 }
 
--(id)initWithZones:(NSArray *)_zonesRect withBg:(UIView *)_bgView delegate:(id<ZoneEvent>)_delegate;
+-(id)initWithZones:(NSArray *)_zoneViews withBg:(UIView *)_bgView delegate:(id<ZoneEvent>)_delegate;
 -(ZoneView *) inAZone:(DragableView *) dragableView;
 
 @end

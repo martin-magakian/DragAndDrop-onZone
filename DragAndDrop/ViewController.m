@@ -23,7 +23,7 @@
     [super viewDidLoad];
 	
     NSArray *dragableStaticControllers = [self dragableStaticControllers];
-    NSArray *zones =[self createZones];
+    NSArray *zones =[self createZonesView];
     
     DragDropManagerVC *dd = [[DragDropManagerVC alloc] initWithDragableStaticControllers:dragableStaticControllers withZones:zones forZoneView:[self createZoneView]];
     dd.view.frame = CGRectMake(20, 100, 700, 500);
@@ -99,6 +99,26 @@
     NSValue *zoneSky = [NSValue valueWithCGRect:CGRectMake(10, 10, 50, 30)];
     
     return [[[NSMutableArray alloc] initWithObjects:zoneBody, zoneWater, zoneHat, zoneBeak, zoneShoe, zoneSky, nil] autorelease];
+}
+
+-(ZoneView *) createZoneView:(CGRect) frame{
+    ZoneView *zone = [[ZoneView alloc] initWithFrame:frame];
+    zone.backgroundColor = [UIColor blueColor];
+    return zone;
+}
+
+-(NSArray *) createZonesView{
+    NSMutableArray *liZoneViews = [[NSMutableArray alloc] init];
+    
+    [liZoneViews addObject:[self createZoneView:CGRectMake(115, 135, 70, 40)]]; //body
+    [liZoneViews addObject:[self createZoneView:CGRectMake(290, 200, 70, 40)]]; //water
+    [liZoneViews addObject:[self createZoneView:CGRectMake(150, 0, 40, 35)]]; //hat
+    [liZoneViews addObject:[self createZoneView:CGRectMake(220, 80, 40, 35)]]; //beak
+    [liZoneViews addObject:[self createZoneView:CGRectMake(150, 220, 70, 60)]]; //shoe
+    [liZoneViews addObject:[self createZoneView:CGRectMake(10, 10, 50, 30)]]; //sky
+    
+    
+    return liZoneViews;
 }
 
 -(UIView *)createZoneView{

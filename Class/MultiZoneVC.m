@@ -11,14 +11,22 @@
 
 @implementation MultiZoneVC
 
--(id)initWithZones:(NSArray *)_zonesRect withBg:(UIView *)_bgView delegate:(id<ZoneEvent>)_delegate{
+-(id)initWithZones:(NSArray *)_zoneViews withBg:(UIView *)_bgView delegate:(id<ZoneEvent>)_delegate{
     self = [super init];
     if(self){        
         bgView = [_bgView retain];
-        zoneRects = [_zonesRect retain];
+        zoneViews = [_zoneViews retain];
         delegate = [_delegate retain];
+        [self assignDependancyToZones];
     }
     return self;
+}
+
+-(void)assignDependancyToZones{
+    for(ZoneView *zv in zoneViews){
+        zv.delegate = delegate;
+        zv.motherView = self.view;
+    }
 }
 
 -(void) viewDidLoad{
@@ -27,8 +35,6 @@
     passView = [[PassthroughView alloc] initWithFrame:CGRectMake(0, 0, 10, 10)];
     passView.backgroundColor = [UIColor brownColor];
     self.view = passView;
-    
-    zoneViews = [self createZonesView];
     
     [self.view addSubview:bgView];
     [self addZonesView];
@@ -39,19 +45,6 @@
     for(UIView *zone in zoneViews){
         [self.view addSubview:zone];
     }
-}
-
--(NSArray *) createZonesView{
-    NSMutableArray *liZoneViews = [[NSMutableArray alloc] initWithCapacity:zoneRects.count];
-    for(NSValue *zoneVal in zoneRects){
-        CGRect zoneRect = [zoneVal CGRectValue];
-        ZoneView *zone = [[ZoneView alloc] initWithFrame:zoneRect];
-        zone.delegate = delegate;
-        zone.motherView = self.view;
-        zone.backgroundColor = [UIColor blueColor];
-        [liZoneViews addObject:zone];
-    }
-    return liZoneViews;
 }
 
 
