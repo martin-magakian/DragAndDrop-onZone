@@ -21,6 +21,7 @@
 -(id)initWithZones:(NSArray *)_zoneViews withBg:(UIView *)_bgView delegate:(id<ZoneEvent>)_delegate;
 -(ZoneView *) inAZone:(DragableView *) dragableView;
 -(void)resizeScale:(CGFloat)scale;
-
+-(void) correction;
+-(BOOL) isGoodAwnser;
 
 @end

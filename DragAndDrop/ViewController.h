@@ -7,8 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "DragDropManagerVC.h"
 
-@interface ViewController : UIViewController
+@interface ViewController : UIViewController{
+    DragDropManagerVC *dd;
+    
+    IBOutlet UILabel *resultCorrectLabel;
+}
 
 - (IBAction)checkAnswersTouched:(id)sender;
 

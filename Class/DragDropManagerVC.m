@@ -77,6 +77,14 @@
     [self.view addSubview:dragableView];
 }
 
+-(void) correction{
+    return [dZone correction];
+}
+
+-(BOOL) isGoodAwnser{
+    return [dZone isGoodAwnser];
+}
+
 -(void) isDragingStart:(DragableView *) dragableView{
     
     if([dList isInList:dragableView]){

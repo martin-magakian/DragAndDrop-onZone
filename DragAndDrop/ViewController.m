@@ -9,7 +9,6 @@
 #import "ViewController.h"
 #import "DragableListVC.h"
 #import "DragableView.h"
-#import "DragDropManagerVC.h"
 #import "StaticView.h"
 #import "DragableStaticContainer.h"
 #import "EnableDisableView.h"
@@ -19,14 +18,16 @@
 @implementation ViewController
 
 
+
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
 	
     NSArray *dragableStaticControllers = [self dragableStaticControllers];
-    NSArray *zones =[self createZonesView];
+    NSArray *zones =[self createZonesViewAndLinkTo:dragableStaticControllers];
     
-    DragDropManagerVC *dd = [[DragDropManagerVC alloc] initWithDragableStaticControllers:dragableStaticControllers withZones:zones forZoneView:[self createZoneView]];
+    dd = [[DragDropManagerVC alloc] initWithDragableStaticControllers:dragableStaticControllers withZones:zones forZoneView:[self createZoneView]];
     dd.view.frame = CGRectMake(20, 100, 700, 500);
     dd.view.backgroundColor = [UIColor yellowColor];
     
@@ -89,37 +90,23 @@
     return [[[NSMutableArray alloc] initWithObjects:dragableVC1, dragableVC2, dragableVC3, dragableVC4, dragableVC5, dragableVC6,  nil] autorelease];
 }
 
--(NSArray *)createZones{
-    NSValue *zoneBody = [NSValue valueWithCGRect:CGRectMake(115, 135, 70, 40)];
-    
-    NSValue *zoneWater = [NSValue valueWithCGRect:CGRectMake(290, 200, 70, 40)];
-    
-    NSValue *zoneHat = [NSValue valueWithCGRect:CGRectMake(150, 0, 40, 35)];
-    
-    NSValue *zoneBeak = [NSValue valueWithCGRect:CGRectMake(220, 80, 40, 35)];
-    
-    NSValue *zoneShoe = [NSValue valueWithCGRect:CGRectMake(150, 220, 70, 60)];
-    
-    NSValue *zoneSky = [NSValue valueWithCGRect:CGRectMake(10, 10, 50, 30)];
-    
-    return [[[NSMutableArray alloc] initWithObjects:zoneBody, zoneWater, zoneHat, zoneBeak, zoneShoe, zoneSky, nil] autorelease];
-}
 
--(ZoneView *) createZoneView:(CGRect) frame{
+-(ZoneView *) createZoneView:(CGRect) frame withCorrectAnswer:(DragableStaticContainer*)correct{
     ZoneView *zone = [[ZoneView alloc] initWithFrame:frame];
+    zone.correctDragableView = correct.dragableView;
     zone.backgroundColor = [UIColor blueColor];
     return zone;
 }
 
--(NSArray *) createZonesView{
+-(NSArray *) createZonesViewAndLinkTo:(NSArray *)liDragableStarticVC{
     NSMutableArray *liZoneViews = [[NSMutableArray alloc] init];
     
-    [liZoneViews addObject:[self createZoneView:CGRectMake(115, 135, 70, 40)]]; //body
-    [liZoneViews addObject:[self createZoneView:CGRectMake(290, 200, 70, 40)]]; //water
-    [liZoneViews addObject:[self createZoneView:CGRectMake(150, 0, 40, 35)]]; //hat
-    [liZoneViews addObject:[self createZoneView:CGRectMake(220, 80, 40, 35)]]; //beak
-    [liZoneViews addObject:[self createZoneView:CGRectMake(150, 220, 70, 60)]]; //shoe
-    [liZoneViews addObject:[self createZoneView:CGRectMake(10, 10, 50, 30)]]; //sky
+    [liZoneViews addObject:[self createZoneView:CGRectMake(115, 135, 70, 40) withCorrectAnswer:[liDragableStarticVC objectAtIndex:0]]]; //body
+    [liZoneViews addObject:[self createZoneView:CGRectMake(290, 200, 70, 40) withCorrectAnswer:[liDragableStarticVC objectAtIndex:1]]]; //water
+    [liZoneViews addObject:[self createZoneView:CGRectMake(150, 0, 40, 35) withCorrectAnswer:[liDragableStarticVC objectAtIndex:2]]]; //hat
+    [liZoneViews addObject:[self createZoneView:CGRectMake(220, 80, 40, 35) withCorrectAnswer:[liDragableStarticVC objectAtIndex:3]]]; //beak
+    [liZoneViews addObject:[self createZoneView:CGRectMake(150, 220, 70, 60) withCorrectAnswer:[liDragableStarticVC objectAtIndex:4]]]; //shoe
+    [liZoneViews addObject:[self createZoneView:CGRectMake(10, 10, 50, 30) withCorrectAnswer:[liDragableStarticVC objectAtIndex:5]]]; //sky
     
     return liZoneViews;
 }
@@ -131,6 +118,17 @@
 }
 
 - (IBAction)checkAnswersTouched:(id)sender {
-    //TOOD
+    [dd correction];
+    if([dd isGoodAwnser]){
+        resultCorrectLabel.text = @"good answers";
+    }else{
+        resultCorrectLabel.text = @"wrong answers";
+    }
+}
+
+
+- (void)dealloc {
+    [resultCorrectLabel release];
+    [super dealloc];
 }
 @end

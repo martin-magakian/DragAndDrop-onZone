@@ -44,6 +44,21 @@
     }
 }
 
+-(void) correction{
+    for(ZoneView *zoneView in zoneViews){
+        [zoneView correction];
+    }
+}
+
+-(BOOL) isGoodAwnser{
+    for(ZoneView *zoneView in zoneViews){
+        if([zoneView isGoodAwnser] == NO){
+            return NO;
+        }
+    }
+    return YES;
+}
+
 
 -(void)resizeScale:(CGFloat)scale{
     for(UIView *zone in zoneViews){

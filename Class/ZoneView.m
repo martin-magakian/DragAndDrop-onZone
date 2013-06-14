@@ -11,7 +11,7 @@
 
 @implementation ZoneView
 
-@synthesize motherView,delegate,currentDragableView;
+@synthesize motherView,delegate,currentDragableView,correctDragableView;
 
 -(id)initWithFrame:(CGRect)frame{
     self = [super initWithFrame:frame];
@@ -26,6 +26,23 @@
                       self.frame.origin.y+motherView.frame.origin.y,
                       self.frame.size.width,
                       self.frame.size.height);
+}
+
+-(void) correction{
+    if([self isGoodAwnser]){
+        self.backgroundColor = [UIColor greenColor];
+    }else{
+        self.backgroundColor = [UIColor redColor];
+    }
+}
+
+-(BOOL) isGoodAwnser{
+    
+    if(correctDragableView != nil && currentDragableView != nil){
+        NSLog(@"no good ?");
+    }
+    
+    return currentDragableView == correctDragableView;
 }
 
 -(void) dropIn:(DragableView *) dragableView{

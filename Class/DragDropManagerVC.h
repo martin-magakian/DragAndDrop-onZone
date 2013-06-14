@@ -26,4 +26,7 @@
 
 -(id)initWithDragableStaticControllers:(NSArray *)_dragableStaticControllers withZones:(NSArray *)_zones forZoneView:(UIView *)_zoneView;
 
+-(void) correction;
+-(BOOL) isGoodAwnser;
+
 @end
