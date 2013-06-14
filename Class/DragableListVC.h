@@ -21,5 +21,6 @@
 -(BOOL)isInList:(DragableView *) dragableView;
 -(CGRect) positionInScrollViewForMotherView:(StaticView *)staticView;
 -(void)enableScrool:(BOOL)enable;
+-(void)resizeScale:(CGFloat)scale;
 
 @end

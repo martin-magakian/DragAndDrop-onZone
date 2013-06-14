@@ -12,7 +12,7 @@
 
 @implementation DragDropManagerVC
 
-#define DRAGABLE_ZONE_HEIGHT 500
+#define DRAGABLE_ZONE_HEIGHT 200
 #define DRAGABLE_ZONE_WIDTH 500
 
 @synthesize currentSelectedDragableView;
@@ -28,15 +28,67 @@
     return self;
 }
 
+
+
+-(CGFloat)resizedScale:(UIView *)bgView{
+    CGSize iHave = CGSizeMake(DRAGABLE_ZONE_WIDTH, DRAGABLE_ZONE_HEIGHT);
+    CGSize iNeed = bgView.frame.size;
+    
+    CGFloat diffWidth = iHave.width - iNeed.width;
+    CGFloat diffHeight = iHave.height - iNeed.height;
+    
+    CGFloat scaleW = 1;
+    CGFloat scaleH = 1;
+    
+    if(diffWidth < 0){
+        //miss space on width
+        scaleW = iHave.width / iNeed.width ;
+    }
+    
+    if(diffHeight < 0){
+        //miss space on height
+        scaleH = iHave.height / iNeed.height;
+    }
+    
+    return fminf(scaleW, scaleH);
+}
+
+
+/*-(void)setup{
+    Scale *scale = [self resizeScale];
+    CGFloat minScale = [scale min];
+    
+    bgView.frame = CGRectMake(0,
+                              0,
+                              bgView.frame.size.width *minScale,
+                              bgView.frame.size.height *minScale);
+    
+    [self.view addSubview:bgView];
+    
+    for(UIView *zone in zoneViews){
+        zone.frame = CGRectMake(zone.frame.origin.x * minScale,
+                                zone.frame.origin.y * minScale,
+                                zone.frame.size.width *minScale,
+                                zone.frame.size.height *minScale);
+        
+        [self.view addSubview:zone];
+    }
+}*/
+
+
 -(void)viewDidLoad{
+    [super viewDidLoad];
+    CGFloat scale = [self resizedScale:zoneView];
+    
     dList = [[DragableListVC alloc] initWithDragableStaticContainers:dragableStaticControllers withDelegate:self];
+    [dList resizeScale:scale];
     dList.view.frame = CGRectMake(50, 50, 120, 300);
     [dList createScrollWithDragableItems];
     [self.view addSubview:dList.view];
     
     dZone = [[MultiZoneVC alloc] initWithZones:zones withBg:zoneView delegate:self];
-    dZone.view.frame = CGRectMake(200, 50, DRAGABLE_ZONE_HEIGHT, DRAGABLE_ZONE_WIDTH);
-    [dZone setup];
+    dZone.view.frame = CGRectMake(200, 50, DRAGABLE_ZONE_WIDTH, DRAGABLE_ZONE_HEIGHT);
+    [dZone resizeScale:scale];
     [self.view addSubview:dZone.view];
 }
 

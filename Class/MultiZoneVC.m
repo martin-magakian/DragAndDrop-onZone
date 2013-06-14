@@ -8,7 +8,6 @@
 
 #import "MultiZoneVC.h"
 
-
 @implementation MultiZoneVC
 
 -(id)initWithZones:(NSArray *)_zoneViews withBg:(UIView *)_bgView delegate:(id<ZoneEvent>)_delegate{
@@ -31,26 +30,33 @@
 
 -(void) viewDidLoad{
     [super viewDidLoad];
+    [self addTapGesture];
     
     self.view.backgroundColor = [UIColor redColor];
     
-    passView = [[PassthroughView alloc] initWithFrame:CGRectMake(0, 0, 0, 00)];
+    passView = [[PassthroughView alloc] initWithFrame:CGRectMake(0, 0, 0, 0)];
     passView.backgroundColor = [UIColor brownColor];
     self.view = passView;
-}
-
--(void)setup{
+    
     [self.view addSubview:bgView];
-    [self addZonesView];
-    [self addTapGesture];
-}
-
--(void) addZonesView{
     for(UIView *zone in zoneViews){
         [self.view addSubview:zone];
     }
 }
 
+
+-(void)resizeScale:(CGFloat)scale{
+    for(UIView *zone in zoneViews){
+        zone.frame = CGRectMake(zone.frame.origin.x * scale,
+                                zone.frame.origin.y * scale,
+                                zone.frame.size.width * scale,
+                                zone.frame.size.height * scale);
+    }
+    bgView.frame = CGRectMake(bgView.frame.origin.x * scale,
+                              bgView.frame.origin.y * scale,
+                              bgView.frame.size.width * scale,
+                              bgView.frame.size.height * scale);
+}
 
 -(ZoneView *) inAZone:(DragableView *) dragableView{
     

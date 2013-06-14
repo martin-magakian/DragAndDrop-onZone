@@ -57,6 +57,10 @@
     self.view = scroll;
 }
 
+-(void)resizeScale:(CGFloat)scale{
+    NSLog(@"todo");
+}
+
 -(BOOL)isInList:(DragableView *) dragableView{
     for(DragableStaticContainer *item in dragableStaticContainers){
         if(item.dragableView == dragableView){
