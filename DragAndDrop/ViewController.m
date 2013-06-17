@@ -29,13 +29,12 @@
 -(void) displayView{
     
     NSArray *dragableStaticControllers = [self dragableStaticControllers];
-    NSArray *zones =[self createZonesViewAndLinkTo:dragableStaticControllers];
+    NSArray *zones = [self createZonesViewAndLinkTo:dragableStaticControllers];
     
-
     dd = [[DragDropManagerVC alloc] initWithDragableStaticControllers:dragableStaticControllers withZones:zones forZoneView:[self createZoneView]];
     dd.view.frame = CGRectMake(20, 100, 700, 500);
     dd.view.backgroundColor = [UIColor yellowColor];
-    
+
     [self.view addSubview:dd.view];
 }
 
@@ -67,13 +66,13 @@
     CGFloat w = [UIImage imageNamed:@"top-normal.png"].size.width;
     CGRect viewRect = CGRectMake(0, 0, w, 50);
     
-    DragableView *dragable3 = [[DragableView alloc] initWithFrame:viewRect];
+    DragableView *dragable3 = [[[DragableView alloc] initWithFrame:viewRect] autorelease];
     ImageScalableView *content3 = [[[ImageScalableView alloc] initWithImage:[UIImage imageNamed:imageName]] autorelease];
     dragable3.bgContent = [[[EnableDisableView alloc] initWithFrame:viewRect isEnable:YES] autorelease];
     dragable3.content = content3;
 
     
-    StaticView *static3 = [[StaticView alloc] initWithFrame:viewRect];
+    StaticView *static3 = [[[StaticView alloc] initWithFrame:viewRect] autorelease];
     ImageScalableView *content3Disable = [[[ImageScalableView alloc] initWithImage:[UIImage imageNamed:imageName]] autorelease];
     content3Disable.alpha = 0.4;
     static3.bgContent = [[[EnableDisableView alloc] initWithFrame:viewRect isEnable:NO] autorelease];
@@ -97,21 +96,39 @@
 
 
 -(ZoneView *) createZoneView:(CGRect) frame withCorrectAnswer:(DragableStaticContainer*)correct{
-    ZoneView *zone = [[[ZoneView alloc] initWithFrame:frame] autorelease];
+    ZoneView *zone = [[ZoneView alloc] initWithFrame:frame];
     zone.correctDragableView = correct.dragableView;
     zone.backgroundColor = [UIColor blueColor];
+    zone.alpha = 0.5;
     return zone;
 }
 
 -(NSArray *) createZonesViewAndLinkTo:(NSArray *)liDragableStarticVC{
-    NSMutableArray *liZoneViews = [[[NSMutableArray alloc] init] autorelease];
+    NSMutableArray *liZoneViews = [NSMutableArray arrayWithCapacity:liDragableStarticVC.count];
     
-    [liZoneViews addObject:[self createZoneView:CGRectMake(115, 135, 70, 40) withCorrectAnswer:[liDragableStarticVC objectAtIndex:0]]]; //body
-    [liZoneViews addObject:[self createZoneView:CGRectMake(290, 200, 70, 40) withCorrectAnswer:[liDragableStarticVC objectAtIndex:1]]]; //water
-    [liZoneViews addObject:[self createZoneView:CGRectMake(150, 0, 40, 35) withCorrectAnswer:[liDragableStarticVC objectAtIndex:2]]]; //hat
-    [liZoneViews addObject:[self createZoneView:CGRectMake(220, 80, 40, 35) withCorrectAnswer:[liDragableStarticVC objectAtIndex:3]]]; //beak
-    [liZoneViews addObject:[self createZoneView:CGRectMake(150, 220, 70, 60) withCorrectAnswer:[liDragableStarticVC objectAtIndex:4]]]; //shoe
-    [liZoneViews addObject:[self createZoneView:CGRectMake(10, 10, 50, 30) withCorrectAnswer:[liDragableStarticVC objectAtIndex:5]]]; //sky
+    ZoneView *body = [self createZoneView:CGRectMake(115, 135, 70, 40) withCorrectAnswer:[liDragableStarticVC objectAtIndex:0]];
+    [liZoneViews addObject:body];
+    [body release];
+    
+    /*ZoneView *water = [self createZoneView:CGRectMake(290, 200, 70, 40) withCorrectAnswer:[liDragableStarticVC objectAtIndex:1]];
+    [liZoneViews addObject:water];
+    [water release];
+    
+    ZoneView *hat = [self createZoneView:CGRectMake(150, 0, 40, 35) withCorrectAnswer:[liDragableStarticVC objectAtIndex:2]];
+    [liZoneViews addObject:hat];
+    [hat release];
+    
+    ZoneView *beak = [self createZoneView:CGRectMake(220, 80, 40, 35) withCorrectAnswer:[liDragableStarticVC objectAtIndex:3]];
+    [liZoneViews addObject:beak];
+    [beak release];
+    
+    ZoneView *shoe =[self createZoneView:CGRectMake(150, 220, 70, 60) withCorrectAnswer:[liDragableStarticVC objectAtIndex:4]];
+    [liZoneViews addObject:shoe];
+    [shoe release];
+    
+    ZoneView *sky = [self createZoneView:CGRectMake(10, 10, 50, 30) withCorrectAnswer:[liDragableStarticVC objectAtIndex:5]];
+    [liZoneViews addObject:sky];
+    [sky release];*/
     
     return liZoneViews;
 }
@@ -131,11 +148,18 @@
     }
 }
 
+-(void) me{
+}
+
 - (IBAction)recreate:(id)sender {
+    [dd removeFromParentViewController];
     [dd.view removeFromSuperview];
     [dd release];
     dd = nil;
-    [self displayView];
+    
+    self.view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 100, 100)];
+    
+    [self performSelector:@selector(me) withObject:nil afterDelay:10];
 }
 
 - (void)dealloc {

@@ -29,7 +29,6 @@
 }
 
 
-
 -(CGFloat)resizedScale:(UIView *)bgView{
     CGSize iHave = CGSizeMake(DRAGABLE_ZONE_WIDTH, DRAGABLE_ZONE_HEIGHT);
     CGSize iNeed = bgView.frame.size;
