@@ -58,13 +58,18 @@
     self.currentZone = zone;
     CGRect zonePos = [zone positionInMother];
     CGPoint contentPadding = [self getContentPadding];
-    CGRect newPosition = CGRectMake(zonePos.origin.x - contentPadding.x,
+    CGRect newPositionTopLeft = CGRectMake(zonePos.origin.x - contentPadding.x,
                                      zonePos.origin.y - contentPadding.y,
                                      self.frame.size.width,
                                      self.frame.size.height);
     
+    CGRect newPositionCenter = CGRectMake(newPositionTopLeft.origin.x + zone.frame.size.width/2 - self.content.frame.size.width/2,
+                                          newPositionTopLeft.origin.y + zone.frame.size.height/2 - self.content.frame.size.height/2,
+                                          newPositionTopLeft.size.width,
+                                          newPositionTopLeft.size.height);
+    
     [UIView animateWithDuration:0.4 animations:^{
-                         self.frame = newPosition;
+                         self.frame = newPositionCenter;
                      } completion:nil];
 }
 
