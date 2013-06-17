@@ -10,24 +10,81 @@
 
 @implementation EnableDisableView
 
--(void)resizeScale:(CGFloat)scale{
-    
-}
+@synthesize top,middle,bottom;
 
-- (id)initWithFrame:(CGRect)frame
+- (id)initWithFrame:(CGRect)frame isEnable:(BOOL)enable
 {
     self = [super initWithFrame:frame];
     if (self) {
-        self.backgroundColor = [UIColor redColor];
+        scale = 1.0f;
+        isEnable = enable;
+        
+        NSString *suffix = isEnable? @"normal" : @"disable";
+        
+        [self initImgWithSuffix:suffix];
+        [self addSubview:top];
+        [self addSubview:middle];
+        [self addSubview:bottom];
+        
+        
+        
+        [self positionImgAndScale];
     }
     return self;
 }
 
+-(void)initImgWithSuffix:(NSString *)suffix{
+    NSString *topName = [NSString stringWithFormat:@"top-%@.png",suffix];
+    NSString *middleName = [NSString stringWithFormat:@"middle-%@.png",suffix];
+    NSString *bottomName = [NSString stringWithFormat:@"bottom-%@.png",suffix];
+    
+    self.top = [[[UIImageView alloc] initWithImage:[UIImage imageNamed:topName]] autorelease];
+    self.middle = [[[UIImageView alloc] initWithImage:[UIImage imageNamed:middleName]] autorelease];
+    self.bottom = [[[UIImageView alloc] initWithImage:[UIImage imageNamed:bottomName]] autorelease];
+}
+
+-(void)changePictFor:(NSString *)suffix{
+    NSString *topName = [NSString stringWithFormat:@"top-%@.png",suffix];
+    NSString *middleName = [NSString stringWithFormat:@"middle-%@.png",suffix];
+    NSString *bottomName = [NSString stringWithFormat:@"bottom-%@.png",suffix];
+    
+    [self.top setImage:[UIImage imageNamed:topName]];
+    [self.middle setImage:[UIImage imageNamed:middleName]];
+    [self.bottom setImage:[UIImage imageNamed:bottomName]];
+}
+
+
+-(void)positionImgAndScale{
+    CGFloat middleHeight = self.frame.size.height - top.frame.size.height - bottom.frame.size.height;
+    
+    CGFloat middleHeightScale = middleHeight * scale;
+    
+    self.frame = CGRectMake(self.frame.origin.x,
+                            self.frame.origin.y,
+                            self.frame.size.width,
+                            top.frame.size.height + bottom.frame.size.height + middleHeightScale);
+    
+    
+    bottom.frame = CGRectMake(bottom.frame.origin.x,
+                              self.frame.size.height - bottom.frame.size.height,
+                              bottom.frame.size.width,
+                              bottom.frame.size.height);
+    
+    middle.frame = CGRectMake(middle.frame.origin.x,
+                              top.frame.origin.y+top.frame.size.height,
+                              middle.frame.size.width,
+                              middleHeightScale);
+}
+
 -(void)selected:(BOOL)enable{
     if(enable){
-        self.backgroundColor = [UIColor blueColor];
+        [self changePictFor:@"enable"];
     }else{
-        self.backgroundColor = [UIColor redColor];
+        if(isEnable == NO){
+            [self changePictFor:@"disable"];
+        }else{
+            [self changePictFor:@"normal"];
+        }
     }
 }
 
@@ -43,5 +100,14 @@
         }];
     }
 }
+
+-(void)resizeScale:(CGFloat)_scale{
+    
+    scale = _scale;
+    
+    [self positionImgAndScale];
+    
+}
+
 
 @end

@@ -9,8 +9,8 @@
 #import "DragableListVC.h"
 #import "DragableStaticContainer.h"
 
-#define PADDING_LEFT_ITEM 10
-#define PADDING_BOTTOM_ITEM 20
+#define PADDING_LEFT_ITEM 0
+#define PADDING_BOTTOM_ITEM 0
 @implementation DragableListVC
 
 

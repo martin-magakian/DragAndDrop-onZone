@@ -37,11 +37,6 @@
 }
 
 -(BOOL) isGoodAwnser{
-    
-    if(correctDragableView != nil && currentDragableView != nil){
-        NSLog(@"no good ?");
-    }
-    
     return currentDragableView == correctDragableView;
 }
 

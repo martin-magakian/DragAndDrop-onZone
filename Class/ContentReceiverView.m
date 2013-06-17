@@ -8,9 +8,12 @@
 
 #import "ContentReceiverView.h"
 
+#define MARGIN_BOTTUM_TOP 12
+
 @implementation ContentReceiverView
 
 @synthesize content,bgContent;
+
 
 
 -(void) centerContent{
@@ -20,12 +23,6 @@
                                content.frame.size.height);
 }
 
--(void) setContent:(UIView<ScalableView>*)_content{
-    [content release];
-    content = [_content retain];
-    [self centerContent];
-    [self addSubview:content];
-}
 
 -(void)setBgContent:(UIView<EnableDisable,ScalableView> *)_bgContent{
     [bgContent release];
@@ -44,6 +41,24 @@
 -(CGPoint) getContentPadding{
     return CGPointMake(content.frame.origin.x,
                        content.frame.origin.y);
+}
+
+-(void) setContent:(UIView<ScalableView> *)_content{
+    [content release];
+    content = [_content retain];
+    
+    CGRect bgFrame = self.bgContent.frame;
+    self.frame = CGRectMake(bgFrame.origin.x,
+                                      bgFrame.origin.y,
+                                      bgFrame.size.width,
+                                      MARGIN_BOTTUM_TOP*2 + content.frame.size.height);
+    
+    self.bgContent.frame = CGRectMake(bgFrame.origin.x,
+                            bgFrame.origin.y,
+                            bgFrame.size.width,
+                            MARGIN_BOTTUM_TOP*2 + content.frame.size.height);
+    [self centerContent];
+    [self addSubview:content];
 }
 
 -(void)resizeScale:(CGFloat)scale{

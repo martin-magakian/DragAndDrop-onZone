@@ -12,7 +12,7 @@
 
 @implementation DragDropManagerVC
 
-#define DRAGABLE_ZONE_HEIGHT 200
+#define DRAGABLE_ZONE_HEIGHT 500
 #define DRAGABLE_ZONE_WIDTH 500
 
 @synthesize currentSelectedDragableView;

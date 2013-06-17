@@ -10,9 +10,12 @@
 
 @implementation ImageScalableView
 
+
+
 -(void)resizeScale:(CGFloat)scale{
-    self.frame = CGRectMake(0,
-                            0,
+
+    self.frame = CGRectMake(self.frame.origin.x,
+                            self.frame.origin.y,
                             self.frame.size.width * scale,
                             self.frame.size.height * scale);
 }

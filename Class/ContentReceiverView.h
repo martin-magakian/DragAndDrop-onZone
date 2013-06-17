@@ -26,7 +26,7 @@
 }
 
 -(CGPoint) getContentPadding;
--(CGRect)getContentFrame;
+-(CGRect) getContentFrame;
 
 @property(retain, nonatomic) UIView<EnableDisable,ScalableView>* bgContent;
 @property(retain, nonatomic) UIView<ScalableView>* content;

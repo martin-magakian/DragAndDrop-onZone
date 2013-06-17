@@ -24,9 +24,16 @@
 {
     [super viewDidLoad];
 	
+
+    [self displayView:0];
+}
+
+-(void) displayView:(int)add{
+    
     NSArray *dragableStaticControllers = [self dragableStaticControllers];
     NSArray *zones =[self createZonesViewAndLinkTo:dragableStaticControllers];
     
+
     dd = [[DragDropManagerVC alloc] initWithDragableStaticControllers:dragableStaticControllers withZones:zones forZoneView:[self createZoneView]];
     dd.view.frame = CGRectMake(20, 100, 700, 500);
     dd.view.backgroundColor = [UIColor yellowColor];
@@ -36,21 +43,21 @@
 
 
 -(DragableStaticContainer *)createDragableStaticContainerText:(NSString *) text{
-    CGRect viewRect = CGRectMake(0, 0, 100, 50);
+    CGFloat w = [UIImage imageNamed:@"top-normal.png"].size.width;
+    CGRect viewRect = CGRectMake(0, 0, w, 50);
     
     DragableView *dragable1 = [[DragableView alloc] initWithFrame:viewRect];
     LabelScalableView *content1 = [[LabelScalableView alloc] initWithFrame:CGRectMake(0, 0, 56, 25)];
     content1.text = text;
     [content1 fitCurrentFrame];
-    dragable1.bgContent = [[EnableDisableView alloc] initWithFrame:viewRect];
+    dragable1.bgContent = [[EnableDisableView alloc] initWithFrame:viewRect isEnable:YES];
     dragable1.content = content1;
     
     StaticView *static1 = [[StaticView alloc] initWithFrame:viewRect];
     LabelScalableView *content1Disalbe = [[LabelScalableView alloc] initWithFrame:CGRectMake(0, 0, 56, 25)];
     content1Disalbe.text = text;
     [content1Disalbe fitCurrentFrame];
-    static1.bgContent = [[EnableDisableView alloc] initWithFrame:viewRect];
-    static1.bgContent.backgroundColor = [UIColor grayColor];
+    static1.bgContent = [[EnableDisableView alloc] initWithFrame:viewRect isEnable:NO];
     static1.content = content1Disalbe;
 
     
@@ -59,19 +66,19 @@
 }
 
 -(DragableStaticContainer *)createDragableStaticContainerImg:(NSString *)imageName{
-    CGRect viewRect = CGRectMake(0, 0, 100, 50);
+    CGFloat w = [UIImage imageNamed:@"top-normal.png"].size.width;
+    CGRect viewRect = CGRectMake(0, 0, w, 50);
     
     DragableView *dragable3 = [[DragableView alloc] initWithFrame:viewRect];
     ImageScalableView *content3 = [[ImageScalableView alloc] initWithImage:[UIImage imageNamed:imageName]];
-    dragable3.bgContent = [[EnableDisableView alloc] initWithFrame:viewRect];
+    dragable3.bgContent = [[EnableDisableView alloc] initWithFrame:viewRect isEnable:YES];
     dragable3.content = content3;
 
     
     StaticView *static3 = [[StaticView alloc] initWithFrame:viewRect];
     ImageScalableView *content3Disable = [[ImageScalableView alloc] initWithImage:[UIImage imageNamed:imageName]];
     content3Disable.alpha = 0.4;
-    static3.bgContent = [[EnableDisableView alloc] initWithFrame:viewRect];
-    static3.bgContent.backgroundColor = [UIColor grayColor];
+    static3.bgContent = [[EnableDisableView alloc] initWithFrame:viewRect isEnable:NO];
     static3.content = content3Disable;
     
     DragableStaticContainer *dragableVC3 = [[DragableStaticContainer alloc] initWithDragable:dragable3 andStatic:static3];

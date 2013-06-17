@@ -15,6 +15,6 @@
     IBOutlet UILabel *resultCorrectLabel;
 }
 
-- (IBAction)checkAnswersTouched:(id)sender;
+
 
 @end

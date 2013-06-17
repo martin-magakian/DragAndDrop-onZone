@@ -9,6 +9,15 @@
 #import <UIKit/UIKit.h>
 #import "ContentReceiverView.h"
 
-@interface EnableDisableView : UIView<EnableDisable,ScalableView>
+@interface EnableDisableView : UIView<EnableDisable,ScalableView>{
+    BOOL isEnable;
+    CGFloat scale;
+}
+
+- (id)initWithFrame:(CGRect)frame isEnable:(BOOL)enable;
+
+@property(retain,nonatomic) UIImageView* top;
+@property(retain,nonatomic) UIImageView* middle;
+@property(retain,nonatomic) UIImageView* bottom;
 
 @end

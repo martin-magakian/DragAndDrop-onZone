@@ -31,7 +31,6 @@
     [delegate isDragingEnd:self];
 }
 
-
 - (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event {
     CGPoint point = [[touches anyObject] locationInView:self];
     self.center = CGPointMake(self.center.x + point.x - touchStart.x, self.center.y + point.y - touchStart.y);
