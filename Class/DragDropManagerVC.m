@@ -197,7 +197,11 @@
 
 -(void)dealloc{
     [dragableStaticControllers release];
+    [currentSelectedDragableView release];
     [dList release];
+    [dZone release];
+    [zones release];
+    [zoneView release];
     [super dealloc];
 }
 

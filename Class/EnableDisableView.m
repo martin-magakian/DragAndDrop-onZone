@@ -106,7 +106,13 @@
     scale = _scale;
     
     [self positionImgAndScale];
-    
+}
+
+-(void) dealloc{
+    [top release];
+    [middle release];
+    [bottom release];
+    [super dealloc];
 }
 
 

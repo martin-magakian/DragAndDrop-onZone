@@ -92,7 +92,8 @@
 
 -(void)releaseCurrentSelected{
     [currentSelected setUnSelected];
-    //[currentSelected release];
+    [currentSelected release];
+    currentSelected = nil;
 }
 
 -(void)selectDragbleView:(DragableView *)dragableView{
@@ -135,6 +136,8 @@
 -(void)dealloc{
     [delegate release];
     [dragableStaticContainers release];
+    [delegate release];
+    [scroll release];
     [super dealloc];
 }
 

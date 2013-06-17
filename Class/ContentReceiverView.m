@@ -72,4 +72,10 @@
     [self centerContent];
 }
 
+-(void)dealloc{
+    [content release];
+    [bgContent release];
+    [super dealloc];
+}
+
 @end

@@ -11,7 +11,7 @@
 
 @implementation DragableView
 
-@synthesize delegate,staticView,isHome;
+@synthesize delegate,staticView,isHome, currentZone;
 
 -(id)initWithFrame:(CGRect)frame{
     self = [super initWithFrame:frame];
@@ -84,6 +84,13 @@
 
 -(void)tapUpInside{
     [delegate isTap:self];
+}
+
+-(void)dealloc{
+    [delegate release];
+    [staticView release];
+    [currentZone release];
+    [super dealloc];
 }
 
 @end
