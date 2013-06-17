@@ -32,7 +32,6 @@
     [super viewDidLoad];
     [self addTapGesture];
     
-    self.view.backgroundColor = [UIColor redColor];
     
     passView = [[PassthroughView alloc] initWithFrame:CGRectMake(0, 0, 0, 0)];
     passView.backgroundColor = [UIColor brownColor];

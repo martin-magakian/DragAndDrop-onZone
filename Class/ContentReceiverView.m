@@ -43,27 +43,32 @@
                        content.frame.origin.y);
 }
 
--(void) setContent:(UIView<ScalableView> *)_content{
-    [content release];
-    content = [_content retain];
-    
+-(void)contentChanged{
     CGRect bgFrame = self.bgContent.frame;
     self.frame = CGRectMake(bgFrame.origin.x,
-                                      bgFrame.origin.y,
-                                      bgFrame.size.width,
-                                      MARGIN_BOTTUM_TOP*2 + content.frame.size.height);
-    
-    self.bgContent.frame = CGRectMake(bgFrame.origin.x,
                             bgFrame.origin.y,
                             bgFrame.size.width,
                             MARGIN_BOTTUM_TOP*2 + content.frame.size.height);
+    
+    self.bgContent.frame = CGRectMake(bgFrame.origin.x,
+                                      bgFrame.origin.y,
+                                      bgFrame.size.width,
+                                      MARGIN_BOTTUM_TOP*2 + content.frame.size.height);
     [self centerContent];
+}
+
+-(void) setContent:(UIView<ScalableView> *)_content{
+    [content release];
+    content = [_content retain];
+    [self contentChanged];
+
     [self addSubview:content];
 }
 
 -(void)resizeScale:(CGFloat)scale{
     [bgContent resizeScale:scale];
     [content resizeScale:scale];
+    [self contentChanged];
     [self centerContent];
 }
 
