@@ -23,12 +23,10 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	
-
-    [self displayView:0];
+    [self displayView];
 }
 
--(void) displayView:(int)add{
+-(void) displayView{
     
     NSArray *dragableStaticControllers = [self dragableStaticControllers];
     NSArray *zones =[self createZonesViewAndLinkTo:dragableStaticControllers];
@@ -133,9 +131,14 @@
     }
 }
 
+- (IBAction)recreate:(id)sender {
+    [dd.view removeFromSuperview];
+    [self displayView];
+}
 
 - (void)dealloc {
     [resultCorrectLabel release];
     [super dealloc];
 }
+
 @end

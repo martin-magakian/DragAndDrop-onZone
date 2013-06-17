@@ -15,6 +15,7 @@
     IBOutlet UILabel *resultCorrectLabel;
 }
 
+- (IBAction)recreate:(id)sender;
 
 
 @end
