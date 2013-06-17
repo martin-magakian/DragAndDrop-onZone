@@ -13,6 +13,6 @@
 @interface StaticView : ContentReceiverView
 
 @property(retain, nonatomic) DragableView *dragableView;
-@property(retain, nonatomic) id<StaticViewEvent> delegate;
+@property(assign, nonatomic) id<StaticViewEvent> delegate;
 
 @end

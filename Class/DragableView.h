@@ -66,7 +66,7 @@
     CGRect originalFrame;
 }
 @property(assign) CGPoint correction;
-@property(retain, nonatomic) id<DragableListManager> delegate;
+@property(assign, nonatomic) id<DragableListManager> delegate;
 @property(retain,nonatomic) StaticView *staticView;
 @property(retain, nonatomic) ZoneView *currentZone;
 @property(assign) BOOL isHome;

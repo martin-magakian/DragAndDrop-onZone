@@ -87,7 +87,6 @@
 }
 
 -(void)dealloc{
-    [delegate release];
     [staticView release];
     [currentZone release];
     [super dealloc];

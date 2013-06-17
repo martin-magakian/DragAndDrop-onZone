@@ -73,7 +73,6 @@
 
 -(void) dealloc{
     [motherView release];
-    [delegate release];
     [correctDragableView release];
     [currentDragableView release];
     [super dealloc];

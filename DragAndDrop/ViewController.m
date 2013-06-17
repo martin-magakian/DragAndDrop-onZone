@@ -133,6 +133,8 @@
 
 - (IBAction)recreate:(id)sender {
     [dd.view removeFromSuperview];
+    [dd release];
+    dd = nil;
     [self displayView];
 }
 

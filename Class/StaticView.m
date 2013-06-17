@@ -36,7 +36,6 @@
 
 -(void)dealloc{
     [dragableView release];
-    [delegate release];
     [super dealloc];
 }
 

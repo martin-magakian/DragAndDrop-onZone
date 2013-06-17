@@ -18,7 +18,7 @@
     self = [super init];
     if(self){
         dragableStaticContainers = [_dragableStaticContainers retain];
-        delegate = [_delegate retain];
+        delegate = _delegate;
     }
     return self;
 }
@@ -134,9 +134,7 @@
 }
 
 -(void)dealloc{
-    [delegate release];
     [dragableStaticContainers release];
-    [delegate release];
     [scroll release];
     [super dealloc];
 }

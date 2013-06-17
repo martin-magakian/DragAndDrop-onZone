@@ -15,7 +15,7 @@
     if(self){        
         bgView = [_bgView retain];
         zoneViews = [_zoneViews retain];
-        delegate = [_delegate retain];
+        delegate = _delegate;
         [self assignDependancyToZones];
     }
     return self;
@@ -102,7 +102,6 @@
 -(void)dealloc{
     [bgView release];
     [zoneViews release];
-    [delegate release];
     [super dealloc];
 }
 

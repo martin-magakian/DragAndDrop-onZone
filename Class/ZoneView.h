@@ -14,7 +14,7 @@
 }
 
 @property(retain, nonatomic) UIView *motherView;
-@property(retain, nonatomic) id<ZoneEvent> delegate;
+@property(assign, nonatomic) id<ZoneEvent> delegate;
 @property(retain, nonatomic) DragableView* correctDragableView;
 @property(retain, nonatomic) DragableView* currentDragableView;
 
