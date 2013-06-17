@@ -33,7 +33,7 @@
     [self addTapGesture];
     
     
-    passView = [[PassthroughView alloc] initWithFrame:CGRectMake(0, 0, 0, 0)];
+    passView = [[[PassthroughView alloc] initWithFrame:CGRectMake(0, 0, 0, 0)] autorelease];
     passView.backgroundColor = [UIColor brownColor];
     self.view = passView;
     
@@ -97,6 +97,13 @@
 
 -(void)tapIsUnselect{
     [delegate tapIsUnselect];
+}
+
+-(void)dealloc{
+    [bgView release];
+    [zoneViews release];
+    [delegate release];
+    [super dealloc];
 }
 
 @end

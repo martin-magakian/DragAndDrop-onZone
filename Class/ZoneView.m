@@ -71,4 +71,12 @@
     [delegate isZoneTouched:self];
 }
 
+-(void) dealloc{
+    [motherView release];
+    [delegate release];
+    [correctDragableView release];
+    [currentDragableView release];
+    [super dealloc];
+}
+
 @end

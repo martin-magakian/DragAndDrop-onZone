@@ -44,22 +44,22 @@
     CGFloat w = [UIImage imageNamed:@"top-normal.png"].size.width;
     CGRect viewRect = CGRectMake(0, 0, w, 50);
     
-    DragableView *dragable1 = [[DragableView alloc] initWithFrame:viewRect];
-    LabelScalableView *content1 = [[LabelScalableView alloc] initWithFrame:CGRectMake(0, 0, 56, 25)];
+    DragableView *dragable1 = [[[DragableView alloc] initWithFrame:viewRect] autorelease];
+    LabelScalableView *content1 = [[[LabelScalableView alloc] initWithFrame:CGRectMake(0, 0, 56, 25)] autorelease];
     content1.text = text;
     [content1 fitCurrentFrame];
-    dragable1.bgContent = [[EnableDisableView alloc] initWithFrame:viewRect isEnable:YES];
+    dragable1.bgContent = [[[EnableDisableView alloc] initWithFrame:viewRect isEnable:YES] autorelease];
     dragable1.content = content1;
     
-    StaticView *static1 = [[StaticView alloc] initWithFrame:viewRect];
-    LabelScalableView *content1Disalbe = [[LabelScalableView alloc] initWithFrame:CGRectMake(0, 0, 56, 25)];
+    StaticView *static1 = [[[StaticView alloc] initWithFrame:viewRect] autorelease];
+    LabelScalableView *content1Disalbe = [[[LabelScalableView alloc] initWithFrame:CGRectMake(0, 0, 56, 25)] autorelease];
     content1Disalbe.text = text;
     [content1Disalbe fitCurrentFrame];
-    static1.bgContent = [[EnableDisableView alloc] initWithFrame:viewRect isEnable:NO];
+    static1.bgContent = [[[EnableDisableView alloc] initWithFrame:viewRect isEnable:NO] autorelease];
     static1.content = content1Disalbe;
 
     
-    DragableStaticContainer *dragableVC1 = [[DragableStaticContainer alloc] initWithDragable:dragable1 andStatic:static1];
+    DragableStaticContainer *dragableVC1 = [[[DragableStaticContainer alloc] initWithDragable:dragable1 andStatic:static1] autorelease];
     return dragableVC1;
 }
 
@@ -68,18 +68,18 @@
     CGRect viewRect = CGRectMake(0, 0, w, 50);
     
     DragableView *dragable3 = [[DragableView alloc] initWithFrame:viewRect];
-    ImageScalableView *content3 = [[ImageScalableView alloc] initWithImage:[UIImage imageNamed:imageName]];
-    dragable3.bgContent = [[EnableDisableView alloc] initWithFrame:viewRect isEnable:YES];
+    ImageScalableView *content3 = [[[ImageScalableView alloc] initWithImage:[UIImage imageNamed:imageName]] autorelease];
+    dragable3.bgContent = [[[EnableDisableView alloc] initWithFrame:viewRect isEnable:YES] autorelease];
     dragable3.content = content3;
 
     
     StaticView *static3 = [[StaticView alloc] initWithFrame:viewRect];
-    ImageScalableView *content3Disable = [[ImageScalableView alloc] initWithImage:[UIImage imageNamed:imageName]];
+    ImageScalableView *content3Disable = [[[ImageScalableView alloc] initWithImage:[UIImage imageNamed:imageName]] autorelease];
     content3Disable.alpha = 0.4;
-    static3.bgContent = [[EnableDisableView alloc] initWithFrame:viewRect isEnable:NO];
+    static3.bgContent = [[[EnableDisableView alloc] initWithFrame:viewRect isEnable:NO] autorelease];
     static3.content = content3Disable;
     
-    DragableStaticContainer *dragableVC3 = [[DragableStaticContainer alloc] initWithDragable:dragable3 andStatic:static3];
+    DragableStaticContainer *dragableVC3 = [[[DragableStaticContainer alloc] initWithDragable:dragable3 andStatic:static3] autorelease];
     return dragableVC3;
 }
 
@@ -97,14 +97,14 @@
 
 
 -(ZoneView *) createZoneView:(CGRect) frame withCorrectAnswer:(DragableStaticContainer*)correct{
-    ZoneView *zone = [[ZoneView alloc] initWithFrame:frame];
+    ZoneView *zone = [[[ZoneView alloc] initWithFrame:frame] autorelease];
     zone.correctDragableView = correct.dragableView;
     zone.backgroundColor = [UIColor blueColor];
     return zone;
 }
 
 -(NSArray *) createZonesViewAndLinkTo:(NSArray *)liDragableStarticVC{
-    NSMutableArray *liZoneViews = [[NSMutableArray alloc] init];
+    NSMutableArray *liZoneViews = [[[NSMutableArray alloc] init] autorelease];
     
     [liZoneViews addObject:[self createZoneView:CGRectMake(115, 135, 70, 40) withCorrectAnswer:[liDragableStarticVC objectAtIndex:0]]]; //body
     [liZoneViews addObject:[self createZoneView:CGRectMake(290, 200, 70, 40) withCorrectAnswer:[liDragableStarticVC objectAtIndex:1]]]; //water
@@ -117,7 +117,7 @@
 }
 
 -(UIView *)createZoneView{
-    UIImageView* img = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"doduck.png"]];
+    UIImageView* img = [[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"doduck.png"]] autorelease];
     img.userInteractionEnabled = YES;
     return img;
 }
@@ -138,6 +138,7 @@
 
 - (void)dealloc {
     [resultCorrectLabel release];
+    [dd release];
     [super dealloc];
 }
 

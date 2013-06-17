@@ -21,4 +21,10 @@
     return self;
 }
 
+-(void)dealloc{
+    [dragableView release];
+    [staticView release];
+    [super dealloc];
+}
+
 @end

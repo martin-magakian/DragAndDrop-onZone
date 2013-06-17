@@ -33,4 +33,11 @@
     [delegate isStaticTap:self];
 }
 
+
+-(void)dealloc{
+    [dragableView release];
+    [delegate release];
+    [super dealloc];
+}
+
 @end
