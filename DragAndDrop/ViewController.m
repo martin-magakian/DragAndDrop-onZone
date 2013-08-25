@@ -23,21 +23,16 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [self displayView];
-}
 
--(void) displayView{
-    
     NSArray *dragableStaticControllers = [self dragableStaticControllers];
     NSArray *zones = [self createZonesViewAndLinkTo:dragableStaticControllers];
     
     dd = [[DragDropManagerVC alloc] initWithDragableStaticControllers:dragableStaticControllers withZones:zones forZoneView:[self createZoneView]];
     dd.view.frame = CGRectMake(20, 100, 700, 500);
     dd.view.backgroundColor = [UIColor yellowColor];
-
+    
     [self.view addSubview:dd.view];
 }
-
 
 -(DragableStaticContainer *)createDragableStaticContainerText:(NSString *) text{
     CGFloat w = [UIImage imageNamed:@"top-normal.png"].size.width;
@@ -110,7 +105,7 @@
     [liZoneViews addObject:body];
     [body release];
     
-    /*ZoneView *water = [self createZoneView:CGRectMake(290, 200, 70, 40) withCorrectAnswer:[liDragableStarticVC objectAtIndex:1]];
+    ZoneView *water = [self createZoneView:CGRectMake(290, 200, 70, 40) withCorrectAnswer:[liDragableStarticVC objectAtIndex:1]];
     [liZoneViews addObject:water];
     [water release];
     
@@ -128,7 +123,7 @@
     
     ZoneView *sky = [self createZoneView:CGRectMake(10, 10, 50, 30) withCorrectAnswer:[liDragableStarticVC objectAtIndex:5]];
     [liZoneViews addObject:sky];
-    [sky release];*/
+    [sky release];
     
     return liZoneViews;
 }
