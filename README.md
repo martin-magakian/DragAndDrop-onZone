@@ -10,6 +10,8 @@ The purpose of this prototype:
 I try to use [different libraries](https://github.com/search?l=Objective-C&q=drag+and+drop) in order to achive my goal.
 As nothing fitted me need properly so I created my own component from scratch.
 
+![progress bar exemples](/README_src/drag-and-drop.jpg)
+
 2 - How it work
 ---------
 The whole componant is a DragDropManagerVC. It requiered some paramater:
@@ -28,7 +30,8 @@ Checkout the code source and read how the DragDropManagerVC in created:
 	    NSArray *dragableStaticControllers = [self dragableStaticControllers];
 	    NSArray *zones = [self createZonesViewAndLinkTo:dragableStaticControllers];
 	    
-	    dd = [[DragDropManagerVC alloc] initWithDragableStaticControllers:dragableStaticControllers withZones:zones forZoneView:[self createZoneView]];
+	    dd = [[DragDropManagerVC alloc] initWithDragableStaticControllers:dragableStaticControllers 
+	    								withZones:zones forZoneView:[self createZoneView]];
 	    dd.view.frame = CGRectMake(20, 100, 700, 500);
 	    dd.view.backgroundColor = [UIColor yellowColor];
 	    

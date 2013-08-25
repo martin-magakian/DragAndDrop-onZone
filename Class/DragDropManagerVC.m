@@ -58,7 +58,7 @@
     
     dList = [[DragableListVC alloc] initWithDragableStaticContainers:dragableStaticControllers withDelegate:self];
     [dList resizeScale:scale];
-    dList.view.frame = CGRectMake(50, 50, 120, 300);
+    dList.view.frame = CGRectMake(50, 50, 120, 330);
     [dList createScrollWithDragableItems];
     [self.view addSubview:dList.view];
     
